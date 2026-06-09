@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}Analytics - PrepTracker{% endblock %}
+{% block header_title %}Analytics & Progress Visualizations{% endblock %}
+{% block content %}
+<div id="analytics-charts-container">
+    <div class="grid-container">
+        <div class="card">
+            <h3 style="margin-bottom: 1rem;"><i class="fa-solid fa-tags" style="color: var(--primary-color);"></i> Problems by Topic</h3>
+            <div style="height: 300px; display: flex; justify-content: center; align-items: center;">
+                <canvas id="topicChart"></canvas>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 style="margin-bottom: 1rem;"><i class="fa-solid fa-layer-group" style="color: var(--warning-color);"></i> Problems by Difficulty</h3>
+            <div style="height: 300px; display: flex; justify-content: center; align-items: center;">
+                <canvas id="difficultyChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-container" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));">
+        <div class="card">
+            <h3 style="margin-bottom: 1rem;"><i class="fa-solid fa-chart-line" style="color: var(--accent-cyan);"></i> Monthly Solving Trends</h3>
+            <div style="height: 300px;">
+                <canvas id="monthlyChart"></canvas>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 style="margin-bottom: 1rem;"><i class="fa-solid fa-trophy" style="color: var(--primary-color);"></i> Contest Attendance by Platform</h3>
+            <div style="height: 300px;">
+                <canvas id="contestChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-container" style="grid-template-columns: 1fr 2fr;">
+        <div class="card">
+            <h3 style="margin-bottom: 1rem;"><i class="fa-solid fa-bullseye" style="color: var(--success-color);"></i> Goal Success Rate</h3>
+            <div style="height: 300px; display: flex; justify-content: center; align-items: center;">
+                <canvas id="goalChart"></canvas>
+            </div>
+        </div>
+        
+        <div class="card" style="display: flex; flex-direction: column; justify-content: center; padding: 2rem;">
+            <h3 style="margin-bottom: 1rem; font-family: var(--font-heading);">Key Insights</h3>
+            <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+                This visualization panel aggregates all your study history across DSA Coding, Competitions, Goals, and Mock Aptitude assessments. 
+            </p>
+            <ul style="color: var(--text-muted); line-height: 1.6; padding-left: 1.5rem;">
+                <li>Identify topics that require deeper review using the polar-area chart.</li>
+                <li>Maintain a healthy balance of Easy/Medium/Hard problems.</li>
+                <li>Observe your month-on-month solving velocity to ensure you are meeting your weekly quotas.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+{% endblock %}
