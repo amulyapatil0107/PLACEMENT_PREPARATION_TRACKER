@@ -157,3 +157,5 @@ def get_analytics_data():
 # Tweak: Log goal creation events
 
 # Tweak: Log goal update events
+
+# Tweak: Log goal completion events
