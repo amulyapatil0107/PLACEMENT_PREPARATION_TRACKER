@@ -221,3 +221,5 @@ def delete_note(id):
 # Tweak: Add confirmation box on notes deletes
 
 # Tweak: Tweak card background colors in notes.html
+
+# Tweak: Improve notes grid responsive flex widths
