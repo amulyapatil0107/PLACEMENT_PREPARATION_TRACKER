@@ -181,3 +181,5 @@ def delete_note(id):
 # Tweak: Add categories array in list notes route
 
 # Tweak: Log note creation activities
+
+# Tweak: Log note edit activities
