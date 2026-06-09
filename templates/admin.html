@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}Admin Control Panel - PrepTracker{% endblock %}
+{% block header_title %}System Admin Control Panel{% endblock %}
+{% block content %}
+<div class="metrics-row">
+    <div class="card card-metric">
+        <div class="metric-details">
+            <h3>Registered Users</h3>
+            <span class="metric-number">{{ total_users }}</span>
+        </div>
+        <div class="metric-icon-box icon-blue">
+            <i class="fa-solid fa-users"></i>
+        </div>
+    </div>
+    <div class="card card-metric">
+        <div class="metric-details">
+            <h3>Global Solved Problems</h3>
+            <span class="metric-number">{{ system_problems }}</span>
+        </div>
+        <div class="metric-icon-box icon-green">
+            <i class="fa-solid fa-code"></i>
+        </div>
+    </div>
+    <div class="card card-metric">
+        <div class="metric-details">
+            <h3>Global Contests Attended</h3>
+            <span class="metric-number">{{ system_contests }}</span>
+        </div>
+        <div class="metric-icon-box icon-cyan">
+            <i class="fa-solid fa-trophy"></i>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <h3 style="margin-bottom: 1rem;"><i class="fa-solid fa-shield" style="color: var(--primary-color);"></i> Active PrepTracker Users</h3>
+    <div class="table-responsive">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>DSA Solved</th>
+                    <th>Contests</th>
+                    <th>Notes Created</th>
+                    <th>Longest Streak</th>
+                    <th>Admin Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stat in user_stats %}
+                    <tr>
+                        <td>#{{ stat.user.id }}</td>
+                        <td><strong>{{ stat.user.username }}</strong></td>
+                        <td>{{ stat.user.email }}</td>
+                        <td><span style="font-weight: 600; color: var(--primary-color);">{{ stat.solved }}</span></td>
+                        <td>{{ stat.contests }}</td>
+                        <td>{{ stat.notes }}</td>
+                        <td>{{ stat.user.longest_streak }} days</td>
+                        <td>
+                            {% if stat.user.is_admin %}
+                                <span class="badge badge-easy">Admin</span>
+                            {% else %}
+                                <span class="badge badge-medium">User</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
