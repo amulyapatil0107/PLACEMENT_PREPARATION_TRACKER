@@ -219,3 +219,5 @@ if __name__ == '__main__':
 # Tweak: List recent logged activities inside dashboard panel
 
 # Tweak: Add admin authorization checks inside admin panel
+
+# Tweak: Add overall system statistics counters inside admin panel
