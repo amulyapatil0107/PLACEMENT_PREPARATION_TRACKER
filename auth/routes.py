@@ -170,3 +170,5 @@ def profile():
 # Tweak: Implement login_required security guard decorator
 
 # Tweak: Add email uniqueness validation in signup form
+
+# Tweak: Add password matches constraint validation in signup
