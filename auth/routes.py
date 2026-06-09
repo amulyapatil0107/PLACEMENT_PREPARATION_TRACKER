@@ -182,3 +182,5 @@ def profile():
 # Tweak: Add success toast notices on registrations
 
 # Tweak: Add failure alert notices on bad credentials
+
+# Tweak: Add redirect checks if user is already authenticated
