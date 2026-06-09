@@ -192,3 +192,5 @@ def profile():
 # Tweak: Format auth blueprint code block
 
 # Tweak: Tweak sidebar navigation responsive classes inside base.html
+
+# Tweak: Add dynamic active class links in base.html
