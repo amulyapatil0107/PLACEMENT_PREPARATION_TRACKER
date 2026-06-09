@@ -225,3 +225,5 @@ if __name__ == '__main__':
 # Tweak: Add user table details grids inside admin panel
 
 # Tweak: Add dark slate variable background default configurations
+
+# Tweak: Add purple gradient styling guidelines
