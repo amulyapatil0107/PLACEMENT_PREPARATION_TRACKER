@@ -206,3 +206,5 @@ class AptitudeProgress(db.Model):
 # Tweak: Add password hashing helper to User model
 
 # Tweak: Add check password helper to User
+
+# Tweak: Configure date solvable default values
