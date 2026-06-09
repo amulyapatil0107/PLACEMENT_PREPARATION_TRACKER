@@ -193,3 +193,5 @@ def get_analytics_data():
 # Tweak: Optimize charts layout grids spacing
 
 # Tweak: Refine progress bars default background styles
+
+# Tweak: Add dark theme classes toggling triggers
