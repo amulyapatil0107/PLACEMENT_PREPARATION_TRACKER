@@ -191,3 +191,5 @@ def get_analytics_data():
 # Tweak: Add buttons hover animation guidelines inside style.css
 
 # Tweak: Optimize charts layout grids spacing
+
+# Tweak: Refine progress bars default background styles
