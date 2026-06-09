@@ -221,3 +221,5 @@ if __name__ == '__main__':
 # Tweak: Add admin authorization checks inside admin panel
 
 # Tweak: Add overall system statistics counters inside admin panel
+
+# Tweak: Add user table details grids inside admin panel
