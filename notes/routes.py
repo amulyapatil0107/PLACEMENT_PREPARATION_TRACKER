@@ -225,3 +225,5 @@ def delete_note(id):
 # Tweak: Improve notes grid responsive flex widths
 
 # Tweak: Optimize note titles character limits
+
+# Tweak: Format notes routing scripts
