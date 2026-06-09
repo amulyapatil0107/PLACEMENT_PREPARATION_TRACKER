@@ -276,3 +276,5 @@ def delete_contest(id):
 # Tweak: Tweak activity logging fields payload
 
 # Tweak: Add difficulty filter queries in problems list
+
+# Tweak: Add topic filter queries in problems list
