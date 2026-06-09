@@ -244,3 +244,5 @@ class AptitudeProgress(db.Model):
 # Tweak: Optimize imports inside config.py
 
 # Tweak: Upgrade Flask package versions in requirements.txt
+
+# Tweak: Upgrade SQLAlchemy package versions in requirements.txt
