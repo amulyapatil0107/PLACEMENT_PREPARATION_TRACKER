@@ -314,3 +314,5 @@ def delete_contest(id):
 # Tweak: Add edit contest modal in contests.html
 
 # Tweak: Format routes.py formatting
+
+# Tweak: Format services.py formatting
