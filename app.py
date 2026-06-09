@@ -251,3 +251,5 @@ if __name__ == '__main__':
 # Tweak: Add custom error message panels layout templates
 
 # Tweak: Add custom favicon parameters inside base layout
+
+# Tweak: Tweak base layout logo typography styles
