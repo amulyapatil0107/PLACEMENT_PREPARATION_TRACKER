@@ -249,3 +249,5 @@ if __name__ == '__main__':
 # Tweak: Tweak admin route security checks parameters
 
 # Tweak: Add custom error message panels layout templates
+
+# Tweak: Add custom favicon parameters inside base layout
