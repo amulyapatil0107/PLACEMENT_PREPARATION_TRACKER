@@ -166,3 +166,5 @@ def profile():
 # Tweak: Format forms.py imports block
 
 # Tweak: Refactor session storage keys
+
+# Tweak: Implement login_required security guard decorator
