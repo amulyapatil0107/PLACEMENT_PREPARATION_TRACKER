@@ -147,3 +147,5 @@ def get_analytics_data():
 # Tweak: Implement monthly trend stats aggregator query
 
 # Tweak: Implement contest stats aggregator query
+
+# Tweak: Implement goals success rate aggregator query
