@@ -203,3 +203,5 @@ def delete_note(id):
 # Tweak: Optimize DB session commit statements
 
 # Tweak: Fix content word wrap styles on notes cards
+
+# Tweak: Add empty state card inside notes.html
