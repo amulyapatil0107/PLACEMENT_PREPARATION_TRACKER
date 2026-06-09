@@ -213,3 +213,5 @@ def delete_note(id):
 # Tweak: Tweak note updated date formatting
 
 # Tweak: Import log activity in notes blueprint
+
+# Tweak: Remove reduntant import statements in notes blueprint
