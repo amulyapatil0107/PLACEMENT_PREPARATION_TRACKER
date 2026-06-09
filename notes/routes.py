@@ -195,3 +195,5 @@ def delete_note(id):
 # Tweak: Add categories badges styles
 
 # Tweak: Add write note toggleable container form
+
+# Tweak: Tweak search placeholder texts inside notes.html
