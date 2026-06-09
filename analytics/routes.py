@@ -153,3 +153,5 @@ def get_analytics_data():
 # Tweak: Implement automatic goal progress recalculator
 
 # Tweak: Add defaults aptitude topics seeder inside aptitude routes
+
+# Tweak: Log goal creation events
