@@ -294,3 +294,5 @@ def delete_contest(id):
 # Tweak: Validate date inputs format in add contest request
 
 # Tweak: Tweak contest deletion database actions
+
+# Tweak: Log activities upon solving problems
