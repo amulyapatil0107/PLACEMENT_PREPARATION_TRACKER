@@ -175,3 +175,5 @@ def get_analytics_data():
 # Tweak: Configure line graph datasets in charts.js
 
 # Tweak: Configure doughnut graph datasets in charts.js
+
+# Tweak: Configure polar area graph datasets in charts.js
