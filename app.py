@@ -213,3 +213,5 @@ if __name__ == '__main__':
 # Tweak: Final codebase inspection and validation release version 1.0.0
 
 # Tweak: Calculate active streak display inside dashboard
+
+# Tweak: Calculate longest streak display inside dashboard
