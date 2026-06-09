@@ -202,3 +202,5 @@ def profile():
 # Tweak: Implement theme storage handler inside main.js local storage
 
 # Tweak: Add sidebar mobile toggle responsive triggers
+
+# Tweak: Add custom error label placements inside register.html
