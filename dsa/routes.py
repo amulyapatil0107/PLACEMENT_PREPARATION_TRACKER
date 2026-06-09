@@ -284,3 +284,5 @@ def delete_contest(id):
 # Tweak: Add status solved checkbox query
 
 # Tweak: Add string search keyword filters inside routes.py
+
+# Tweak: Update date solved when checking solved
