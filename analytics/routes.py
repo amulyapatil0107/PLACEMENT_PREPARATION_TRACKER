@@ -187,3 +187,5 @@ def get_analytics_data():
 # Tweak: Tweak CSS colors palette parameters
 
 # Tweak: Add glassmorphism background filters styling
+
+# Tweak: Add buttons hover animation guidelines inside style.css
