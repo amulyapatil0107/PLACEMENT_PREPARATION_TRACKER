@@ -185,3 +185,5 @@ def get_analytics_data():
 # Tweak: Tweak tooltips grid colors in charts.js
 
 # Tweak: Tweak CSS colors palette parameters
+
+# Tweak: Add glassmorphism background filters styling
