@@ -214,3 +214,5 @@ class AptitudeProgress(db.Model):
 # Tweak: Tweak varchar limits on models
 
 # Tweak: Fix imports inside models.py
+
+# Tweak: Tweak database URI variable
