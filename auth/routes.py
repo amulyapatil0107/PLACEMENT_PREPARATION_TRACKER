@@ -174,3 +174,5 @@ def profile():
 # Tweak: Add password matches constraint validation in signup
 
 # Tweak: Add session handlers upon successful logins
+
+# Tweak: Tweak session clear functionality inside logout controller
