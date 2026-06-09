@@ -177,3 +177,5 @@ def delete_note(id):
 # Tweak: Add search query filter in notes list controller
 
 # Tweak: Add category filter in notes list controller
+
+# Tweak: Add categories array in list notes route
