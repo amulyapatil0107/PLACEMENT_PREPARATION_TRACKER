@@ -167,3 +167,5 @@ def get_analytics_data():
 # Tweak: Add update aptitude scores modal inside aptitude.html
 
 # Tweak: Add custom topic form in aptitude.html
+
+# Tweak: Add edit goal modal inside goals.html
