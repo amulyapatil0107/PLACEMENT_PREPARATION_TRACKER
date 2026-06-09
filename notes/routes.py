@@ -207,3 +207,5 @@ def delete_note(id):
 # Tweak: Add empty state card inside notes.html
 
 # Tweak: Verify notes edit parameters values
+
+# Tweak: Add tooltip styling to notes cards
