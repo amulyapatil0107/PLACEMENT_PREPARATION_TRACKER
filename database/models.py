@@ -202,3 +202,5 @@ class AptitudeProgress(db.Model):
 # Tweak: Tweak Problem difficulty choices
 
 # Tweak: Add relationship mappings
+
+# Tweak: Add password hashing helper to User model
