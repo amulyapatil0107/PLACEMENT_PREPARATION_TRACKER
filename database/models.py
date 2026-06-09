@@ -238,3 +238,5 @@ class AptitudeProgress(db.Model):
 # Tweak: Format models.py using pep8 style rules
 
 # Tweak: Add verification check inside config.py
+
+# Tweak: Set database pool size key
