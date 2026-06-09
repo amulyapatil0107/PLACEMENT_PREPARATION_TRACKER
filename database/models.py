@@ -220,3 +220,5 @@ class AptitudeProgress(db.Model):
 # Tweak: Configure session parameters in config.py
 
 # Tweak: Tweak track modifications key
+
+# Tweak: Add docstrings to User model
