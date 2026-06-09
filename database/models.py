@@ -200,3 +200,5 @@ class AptitudeProgress(db.Model):
 # Tweak: Add User model constraints
 
 # Tweak: Tweak Problem difficulty choices
+
+# Tweak: Add relationship mappings
