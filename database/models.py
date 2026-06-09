@@ -216,3 +216,5 @@ class AptitudeProgress(db.Model):
 # Tweak: Fix imports inside models.py
 
 # Tweak: Tweak database URI variable
+
+# Tweak: Configure session parameters in config.py
