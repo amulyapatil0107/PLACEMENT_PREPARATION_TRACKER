@@ -242,3 +242,5 @@ class AptitudeProgress(db.Model):
 # Tweak: Set database pool size key
 
 # Tweak: Optimize imports inside config.py
+
+# Tweak: Upgrade Flask package versions in requirements.txt
