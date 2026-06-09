@@ -143,3 +143,5 @@ def get_analytics_data():
 # Tweak: Implement dsa topic stats aggregator query
 
 # Tweak: Implement difficulty stats aggregator query
+
+# Tweak: Implement monthly trend stats aggregator query
