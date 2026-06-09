@@ -231,3 +231,5 @@ if __name__ == '__main__':
 # Tweak: Fix dashboard flex container responsive wrappers
 
 # Tweak: Tweak mobile menu visibility toggles inside main.js
+
+# Tweak: Tweak dashboard cards hover translation speed
