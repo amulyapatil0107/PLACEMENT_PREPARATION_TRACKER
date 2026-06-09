@@ -204,3 +204,5 @@ class AptitudeProgress(db.Model):
 # Tweak: Add relationship mappings
 
 # Tweak: Add password hashing helper to User model
+
+# Tweak: Add check password helper to User
