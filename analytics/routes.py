@@ -179,3 +179,5 @@ def get_analytics_data():
 # Tweak: Configure polar area graph datasets in charts.js
 
 # Tweak: Configure bar graph datasets in charts.js
+
+# Tweak: Configure pie graph datasets in charts.js
