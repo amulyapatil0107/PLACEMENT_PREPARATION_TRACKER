@@ -159,3 +159,5 @@ def get_analytics_data():
 # Tweak: Log goal update events
 
 # Tweak: Log goal completion events
+
+# Tweak: Log aptitude accuracy score updates
