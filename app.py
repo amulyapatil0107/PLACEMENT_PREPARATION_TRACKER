@@ -253,3 +253,5 @@ if __name__ == '__main__':
 # Tweak: Add custom favicon parameters inside base layout
 
 # Tweak: Tweak base layout logo typography styles
+
+# Tweak: Refine analytics insight card descriptions text
