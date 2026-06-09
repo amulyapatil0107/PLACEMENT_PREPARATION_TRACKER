@@ -240,3 +240,5 @@ class AptitudeProgress(db.Model):
 # Tweak: Add verification check inside config.py
 
 # Tweak: Set database pool size key
+
+# Tweak: Optimize imports inside config.py
