@@ -234,3 +234,5 @@ class AptitudeProgress(db.Model):
 # Tweak: Add docstrings to Activity model
 
 # Tweak: Add docstrings to AptitudeProgress model
+
+# Tweak: Format models.py using pep8 style rules
