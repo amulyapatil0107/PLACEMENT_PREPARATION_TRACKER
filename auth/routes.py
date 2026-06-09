@@ -180,3 +180,5 @@ def profile():
 # Tweak: Refactor forms validation structure
 
 # Tweak: Add success toast notices on registrations
+
+# Tweak: Add failure alert notices on bad credentials
