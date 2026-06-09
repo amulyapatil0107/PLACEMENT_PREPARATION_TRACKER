@@ -217,3 +217,5 @@ if __name__ == '__main__':
 # Tweak: Calculate longest streak display inside dashboard
 
 # Tweak: List recent logged activities inside dashboard panel
+
+# Tweak: Add admin authorization checks inside admin panel
