@@ -191,3 +191,5 @@ def delete_note(id):
 # Tweak: Add read full note modal in notes.html
 
 # Tweak: Add edit note modal template in notes.html
+
+# Tweak: Add categories badges styles
