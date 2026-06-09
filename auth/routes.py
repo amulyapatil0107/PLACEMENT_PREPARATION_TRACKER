@@ -208,3 +208,5 @@ def profile():
 # Tweak: Add description headings to profile.html
 
 # Tweak: Format forms.py imports block
+
+# Tweak: Refactor session storage keys
