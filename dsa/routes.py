@@ -286,3 +286,5 @@ def delete_contest(id):
 # Tweak: Add string search keyword filters inside routes.py
 
 # Tweak: Update date solved when checking solved
+
+# Tweak: Tweak problem deletion database actions
