@@ -169,3 +169,5 @@ def get_analytics_data():
 # Tweak: Add custom topic form in aptitude.html
 
 # Tweak: Add edit goal modal inside goals.html
+
+# Tweak: Add goal completion check indicator badges
