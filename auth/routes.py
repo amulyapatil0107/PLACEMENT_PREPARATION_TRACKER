@@ -186,3 +186,5 @@ def profile():
 # Tweak: Add redirect checks if user is already authenticated
 
 # Tweak: Import email validator helper inside forms.py
+
+# Tweak: Tweak length checks on username in registration form
