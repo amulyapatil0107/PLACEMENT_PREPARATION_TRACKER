@@ -145,3 +145,5 @@ def get_analytics_data():
 # Tweak: Implement difficulty stats aggregator query
 
 # Tweak: Implement monthly trend stats aggregator query
+
+# Tweak: Implement contest stats aggregator query
