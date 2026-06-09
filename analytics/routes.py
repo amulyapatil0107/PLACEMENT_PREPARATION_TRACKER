@@ -155,3 +155,5 @@ def get_analytics_data():
 # Tweak: Add defaults aptitude topics seeder inside aptitude routes
 
 # Tweak: Log goal creation events
+
+# Tweak: Log goal update events
