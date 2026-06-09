@@ -208,3 +208,5 @@ class AptitudeProgress(db.Model):
 # Tweak: Add check password helper to User
 
 # Tweak: Configure date solvable default values
+
+# Tweak: Set default completed values on Goal model
