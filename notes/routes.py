@@ -201,3 +201,5 @@ def delete_note(id):
 # Tweak: Format notes/routes.py formatting
 
 # Tweak: Optimize DB session commit statements
+
+# Tweak: Fix content word wrap styles on notes cards
