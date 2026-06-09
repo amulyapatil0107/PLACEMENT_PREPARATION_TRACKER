@@ -196,3 +196,5 @@ def profile():
 # Tweak: Add dynamic active class links in base.html
 
 # Tweak: Optimize main.js logic
+
+# Tweak: Add fade animations trigger to toast notices in main.js
