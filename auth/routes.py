@@ -190,3 +190,5 @@ def profile():
 # Tweak: Tweak length checks on username in registration form
 
 # Tweak: Format auth blueprint code block
+
+# Tweak: Tweak sidebar navigation responsive classes inside base.html
