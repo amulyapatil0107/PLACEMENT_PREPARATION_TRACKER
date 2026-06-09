@@ -183,3 +183,5 @@ def get_analytics_data():
 # Tweak: Configure pie graph datasets in charts.js
 
 # Tweak: Tweak tooltips grid colors in charts.js
+
+# Tweak: Tweak CSS colors palette parameters
