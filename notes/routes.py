@@ -173,3 +173,5 @@ def delete_note(id):
 # Tweak: Optimize note titles character limits
 
 # Tweak: Format notes routing scripts
+
+# Tweak: Add search query filter in notes list controller
