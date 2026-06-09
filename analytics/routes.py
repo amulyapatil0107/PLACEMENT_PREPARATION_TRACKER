@@ -165,3 +165,5 @@ def get_analytics_data():
 # Tweak: Log custom aptitude topic additions
 
 # Tweak: Add update aptitude scores modal inside aptitude.html
+
+# Tweak: Add custom topic form in aptitude.html
