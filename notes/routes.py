@@ -189,3 +189,5 @@ def delete_note(id):
 # Tweak: Add description field character clamps
 
 # Tweak: Add read full note modal in notes.html
+
+# Tweak: Add edit note modal template in notes.html
