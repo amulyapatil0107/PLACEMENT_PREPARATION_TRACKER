@@ -197,3 +197,5 @@ def delete_note(id):
 # Tweak: Add write note toggleable container form
 
 # Tweak: Tweak search placeholder texts inside notes.html
+
+# Tweak: Format notes/routes.py formatting
