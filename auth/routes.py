@@ -194,3 +194,5 @@ def profile():
 # Tweak: Tweak sidebar navigation responsive classes inside base.html
 
 # Tweak: Add dynamic active class links in base.html
+
+# Tweak: Optimize main.js logic
