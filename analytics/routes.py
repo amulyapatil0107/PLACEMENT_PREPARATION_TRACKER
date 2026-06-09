@@ -149,3 +149,5 @@ def get_analytics_data():
 # Tweak: Implement contest stats aggregator query
 
 # Tweak: Implement goals success rate aggregator query
+
+# Tweak: Implement automatic goal progress recalculator
