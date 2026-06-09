@@ -166,3 +166,5 @@ Open your browser and navigate to:
 <!-- Refinement commit 5 -->
 
 <!-- Refinement commit 6 -->
+
+<!-- Refinement commit 7 -->
