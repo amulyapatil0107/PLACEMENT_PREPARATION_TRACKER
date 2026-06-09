@@ -198,3 +198,5 @@ class AptitudeProgress(db.Model):
 # Tweak: Upgrade SQLAlchemy package versions in requirements.txt
 
 # Tweak: Add User model constraints
+
+# Tweak: Tweak Problem difficulty choices
