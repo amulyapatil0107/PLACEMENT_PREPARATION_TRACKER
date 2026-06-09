@@ -274,3 +274,5 @@ def delete_contest(id):
 # Tweak: Implement streak update logic check
 
 # Tweak: Tweak activity logging fields payload
+
+# Tweak: Add difficulty filter queries in problems list
