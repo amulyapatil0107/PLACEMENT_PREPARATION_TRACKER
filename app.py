@@ -237,3 +237,5 @@ if __name__ == '__main__':
 # Tweak: Verify SQLAlchemy session flush statements
 
 # Tweak: Remove redundant debug logs inside blueprints
+
+# Tweak: Tweak flash toast notification auto fadeout time to 4s
