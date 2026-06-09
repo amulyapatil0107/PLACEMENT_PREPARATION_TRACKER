@@ -188,3 +188,5 @@ def profile():
 # Tweak: Import email validator helper inside forms.py
 
 # Tweak: Tweak length checks on username in registration form
+
+# Tweak: Format auth blueprint code block
