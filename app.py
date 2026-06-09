@@ -241,3 +241,5 @@ if __name__ == '__main__':
 # Tweak: Tweak flash toast notification auto fadeout time to 4s
 
 # Tweak: Fix database relationships Cascade deletes
+
+# Tweak: Add default admin creation upon db initialize in app.py
