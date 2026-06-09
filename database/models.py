@@ -212,3 +212,5 @@ class AptitudeProgress(db.Model):
 # Tweak: Set default completed values on Goal model
 
 # Tweak: Tweak varchar limits on models
+
+# Tweak: Fix imports inside models.py
