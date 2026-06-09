@@ -178,3 +178,5 @@ def profile():
 # Tweak: Tweak session clear functionality inside logout controller
 
 # Tweak: Refactor forms validation structure
+
+# Tweak: Add success toast notices on registrations
