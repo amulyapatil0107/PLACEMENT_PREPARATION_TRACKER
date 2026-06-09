@@ -288,3 +288,5 @@ def delete_contest(id):
 # Tweak: Update date solved when checking solved
 
 # Tweak: Tweak problem deletion database actions
+
+# Tweak: Calculate rating delta change values on contests
