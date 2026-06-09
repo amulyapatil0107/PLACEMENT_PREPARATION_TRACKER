@@ -168,3 +168,5 @@ def profile():
 # Tweak: Refactor session storage keys
 
 # Tweak: Implement login_required security guard decorator
+
+# Tweak: Add email uniqueness validation in signup form
