@@ -183,3 +183,5 @@ def delete_note(id):
 # Tweak: Log note creation activities
 
 # Tweak: Log note edit activities
+
+# Tweak: Log note delete activities
