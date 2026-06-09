@@ -204,3 +204,5 @@ def profile():
 # Tweak: Add sidebar mobile toggle responsive triggers
 
 # Tweak: Add custom error label placements inside register.html
+
+# Tweak: Add description headings to profile.html
