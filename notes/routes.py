@@ -199,3 +199,5 @@ def delete_note(id):
 # Tweak: Tweak search placeholder texts inside notes.html
 
 # Tweak: Format notes/routes.py formatting
+
+# Tweak: Optimize DB session commit statements
