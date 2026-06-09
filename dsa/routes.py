@@ -318,3 +318,5 @@ def delete_contest(id):
 # Tweak: Format services.py formatting
 
 # Tweak: Import datetime in dsa routes
+
+# Tweak: Tweak query orders to descending dates
