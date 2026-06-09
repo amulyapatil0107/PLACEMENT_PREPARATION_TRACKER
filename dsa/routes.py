@@ -306,3 +306,5 @@ def delete_contest(id):
 # Tweak: Add toggleable log problem panel in dsa.html
 
 # Tweak: Add edit modal template script inside dsa.html
+
+# Tweak: Add platform badge icons styling in dsa.html
