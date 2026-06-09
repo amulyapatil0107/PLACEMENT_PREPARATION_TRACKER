@@ -209,3 +209,5 @@ def delete_note(id):
 # Tweak: Verify notes edit parameters values
 
 # Tweak: Add tooltip styling to notes cards
+
+# Tweak: Tweak note updated date formatting
