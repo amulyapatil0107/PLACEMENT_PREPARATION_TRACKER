@@ -211,3 +211,5 @@ def delete_note(id):
 # Tweak: Add tooltip styling to notes cards
 
 # Tweak: Tweak note updated date formatting
+
+# Tweak: Import log activity in notes blueprint
