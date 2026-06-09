@@ -280,3 +280,5 @@ def delete_contest(id):
 # Tweak: Add topic filter queries in problems list
 
 # Tweak: Add platform filter queries in problems list
+
+# Tweak: Add status solved checkbox query
