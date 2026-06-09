@@ -292,3 +292,5 @@ def delete_contest(id):
 # Tweak: Calculate rating delta change values on contests
 
 # Tweak: Validate date inputs format in add contest request
+
+# Tweak: Tweak contest deletion database actions
