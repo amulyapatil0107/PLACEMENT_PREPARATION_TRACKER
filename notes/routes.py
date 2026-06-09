@@ -217,3 +217,5 @@ def delete_note(id):
 # Tweak: Remove reduntant import statements in notes blueprint
 
 # Tweak: Tweak category selection default options
+
+# Tweak: Add confirmation box on notes deletes
