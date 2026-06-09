@@ -215,3 +215,5 @@ def delete_note(id):
 # Tweak: Import log activity in notes blueprint
 
 # Tweak: Remove reduntant import statements in notes blueprint
+
+# Tweak: Tweak category selection default options
