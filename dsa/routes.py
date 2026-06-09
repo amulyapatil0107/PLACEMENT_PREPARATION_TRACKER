@@ -296,3 +296,5 @@ def delete_contest(id):
 # Tweak: Tweak contest deletion database actions
 
 # Tweak: Log activities upon solving problems
+
+# Tweak: Log activities upon logging contest entries
