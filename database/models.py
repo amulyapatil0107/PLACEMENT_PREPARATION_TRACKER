@@ -196,3 +196,5 @@ class AptitudeProgress(db.Model):
 # Tweak: Upgrade Flask package versions in requirements.txt
 
 # Tweak: Upgrade SQLAlchemy package versions in requirements.txt
+
+# Tweak: Add User model constraints
