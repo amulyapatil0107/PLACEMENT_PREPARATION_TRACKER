@@ -304,3 +304,5 @@ def delete_contest(id):
 # Tweak: Tweak problem name display inside dsa.html
 
 # Tweak: Add toggleable log problem panel in dsa.html
+
+# Tweak: Add edit modal template script inside dsa.html
