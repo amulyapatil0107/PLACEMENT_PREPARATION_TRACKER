@@ -245,3 +245,5 @@ if __name__ == '__main__':
 # Tweak: Add default admin creation upon db initialize in app.py
 
 # Tweak: Verify template context bindings inside routes
+
+# Tweak: Tweak admin route security checks parameters
