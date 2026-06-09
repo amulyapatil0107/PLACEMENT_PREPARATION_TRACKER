@@ -163,3 +163,5 @@ def get_analytics_data():
 # Tweak: Log aptitude accuracy score updates
 
 # Tweak: Log custom aptitude topic additions
+
+# Tweak: Add update aptitude scores modal inside aptitude.html
