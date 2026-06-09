@@ -223,3 +223,5 @@ if __name__ == '__main__':
 # Tweak: Add overall system statistics counters inside admin panel
 
 # Tweak: Add user table details grids inside admin panel
+
+# Tweak: Add dark slate variable background default configurations
