@@ -172,3 +172,5 @@ def profile():
 # Tweak: Add email uniqueness validation in signup form
 
 # Tweak: Add password matches constraint validation in signup
+
+# Tweak: Add session handlers upon successful logins
