@@ -198,3 +198,5 @@ def profile():
 # Tweak: Optimize main.js logic
 
 # Tweak: Add fade animations trigger to toast notices in main.js
+
+# Tweak: Implement theme storage handler inside main.js local storage
