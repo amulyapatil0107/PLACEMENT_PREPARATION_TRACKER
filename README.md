@@ -154,3 +154,5 @@ Open your browser and navigate to:
 * **Default Admin Profile**:
   * **Username**: `admin`
   * **Password**: `admin123` (Accesses overall system statistics)
+
+<!-- Refinement commit 1 -->
