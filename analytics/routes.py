@@ -173,3 +173,5 @@ def get_analytics_data():
 # Tweak: Add goal completion check indicator badges
 
 # Tweak: Configure line graph datasets in charts.js
+
+# Tweak: Configure doughnut graph datasets in charts.js
