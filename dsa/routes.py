@@ -308,3 +308,5 @@ def delete_contest(id):
 # Tweak: Add edit modal template script inside dsa.html
 
 # Tweak: Add platform badge icons styling in dsa.html
+
+# Tweak: Add rating delta arrows color classes in contests.html
