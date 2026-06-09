@@ -272,3 +272,5 @@ def delete_contest(id):
 # Tweak: Tweak query orders to descending dates
 
 # Tweak: Implement streak update logic check
+
+# Tweak: Tweak activity logging fields payload
