@@ -219,3 +219,5 @@ def delete_note(id):
 # Tweak: Tweak category selection default options
 
 # Tweak: Add confirmation box on notes deletes
+
+# Tweak: Tweak card background colors in notes.html
