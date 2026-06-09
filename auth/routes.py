@@ -184,3 +184,5 @@ def profile():
 # Tweak: Add failure alert notices on bad credentials
 
 # Tweak: Add redirect checks if user is already authenticated
+
+# Tweak: Import email validator helper inside forms.py
