@@ -228,3 +228,5 @@ class AptitudeProgress(db.Model):
 # Tweak: Add docstrings to Contest model
 
 # Tweak: Add docstrings to Goal model
+
+# Tweak: Add docstrings to Note model
