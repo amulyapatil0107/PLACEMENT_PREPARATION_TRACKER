@@ -189,3 +189,5 @@ def get_analytics_data():
 # Tweak: Add glassmorphism background filters styling
 
 # Tweak: Add buttons hover animation guidelines inside style.css
+
+# Tweak: Optimize charts layout grids spacing
