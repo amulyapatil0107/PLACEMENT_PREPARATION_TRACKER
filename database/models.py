@@ -222,3 +222,5 @@ class AptitudeProgress(db.Model):
 # Tweak: Tweak track modifications key
 
 # Tweak: Add docstrings to User model
+
+# Tweak: Add docstrings to Problem model
