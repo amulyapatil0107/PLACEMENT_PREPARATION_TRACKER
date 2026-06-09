@@ -302,3 +302,5 @@ def delete_contest(id):
 # Tweak: Optimize query indexing inside list problems route
 
 # Tweak: Tweak problem name display inside dsa.html
+
+# Tweak: Add toggleable log problem panel in dsa.html
