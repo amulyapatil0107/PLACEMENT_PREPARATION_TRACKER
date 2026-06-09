@@ -200,3 +200,5 @@ def profile():
 # Tweak: Add fade animations trigger to toast notices in main.js
 
 # Tweak: Implement theme storage handler inside main.js local storage
+
+# Tweak: Add sidebar mobile toggle responsive triggers
