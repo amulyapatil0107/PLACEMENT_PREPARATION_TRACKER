@@ -229,3 +229,5 @@ if __name__ == '__main__':
 # Tweak: Add purple gradient styling guidelines
 
 # Tweak: Fix dashboard flex container responsive wrappers
+
+# Tweak: Tweak mobile menu visibility toggles inside main.js
