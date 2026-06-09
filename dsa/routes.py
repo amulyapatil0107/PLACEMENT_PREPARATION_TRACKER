@@ -278,3 +278,5 @@ def delete_contest(id):
 # Tweak: Add difficulty filter queries in problems list
 
 # Tweak: Add topic filter queries in problems list
+
+# Tweak: Add platform filter queries in problems list
