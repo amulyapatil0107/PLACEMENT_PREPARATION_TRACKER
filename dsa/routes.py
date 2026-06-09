@@ -312,3 +312,5 @@ def delete_contest(id):
 # Tweak: Add rating delta arrows color classes in contests.html
 
 # Tweak: Add edit contest modal in contests.html
+
+# Tweak: Format routes.py formatting
