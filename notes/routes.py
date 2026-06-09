@@ -185,3 +185,5 @@ def delete_note(id):
 # Tweak: Log note edit activities
 
 # Tweak: Log note delete activities
+
+# Tweak: Add description field character clamps
