@@ -210,3 +210,5 @@ class AptitudeProgress(db.Model):
 # Tweak: Configure date solvable default values
 
 # Tweak: Set default completed values on Goal model
+
+# Tweak: Tweak varchar limits on models
