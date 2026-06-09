@@ -282,3 +282,5 @@ def delete_contest(id):
 # Tweak: Add platform filter queries in problems list
 
 # Tweak: Add status solved checkbox query
+
+# Tweak: Add string search keyword filters inside routes.py
