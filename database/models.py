@@ -22,3 +22,6 @@ class User(db.Model):
      notes = db.relationship('Note', backref='user', lazy=True, cascade="all, delete-orphan")
     activities = db.relationship('Activity', backref='user', lazy=True, cascade="all, delete-orphan")
     aptitude_progress = db.relationship('AptitudeProgress', backref='user', lazy=True, cascade="all, delete-orphan")
+
+     def set_password(self, password):
+        self.password_hash = generate_password_hash(password)
