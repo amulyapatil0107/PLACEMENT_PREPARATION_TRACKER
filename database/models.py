@@ -16,3 +16,6 @@ class User(db.Model):
     is_admin = db.Column(db.Boolean, default=False)
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
 
+    problems = db.relationship('Problem', backref='user', lazy=True, cascade="all, delete-orphan")
+    contests = db.relationship('Contest', backref='user', lazy=True, cascade="all, delete-orphan")
+    goals = db.relationship('Goal', backref='user', lazy=True, cascade="all, delete-orphan")
