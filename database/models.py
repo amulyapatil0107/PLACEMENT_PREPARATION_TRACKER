@@ -28,3 +28,16 @@ class User(db.Model):
 
      def check_password(self, password):
         return check_password_hash(self.password_hash, password)
+
+    class Problem(db.Model):
+    __tablename__ = 'problems'
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    name = db.Column(db.String(200), nullable=False)
+    topic = db.Column(db.String(100), nullable=False)
+    difficulty = db.Column(db.String(20), nullable=False)
+    platform = db.Column(db.String(50), nullable=False)
+    status = db.Column(db.Boolean, default=False)
+    notes = db.Column(db.Text, nullable=True)
+    date_solved = db.Column(db.Date, nullable=True)
+    date_created = db.Column(db.DateTime, default=datetime.utcnow)
