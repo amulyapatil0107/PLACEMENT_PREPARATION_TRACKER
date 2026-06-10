@@ -19,3 +19,6 @@ class User(db.Model):
     problems = db.relationship('Problem', backref='user', lazy=True, cascade="all, delete-orphan")
     contests = db.relationship('Contest', backref='user', lazy=True, cascade="all, delete-orphan")
     goals = db.relationship('Goal', backref='user', lazy=True, cascade="all, delete-orphan")
+     notes = db.relationship('Note', backref='user', lazy=True, cascade="all, delete-orphan")
+    activities = db.relationship('Activity', backref='user', lazy=True, cascade="all, delete-orphan")
+    aptitude_progress = db.relationship('AptitudeProgress', backref='user', lazy=True, cascade="all, delete-orphan")
