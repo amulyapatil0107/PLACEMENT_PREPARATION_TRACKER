@@ -85,3 +85,13 @@ class User(db.Model):
     description = db.Column(db.String(255), nullable=False)
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
 
+    class AptitudeProgress(db.Model):
+    __tablename__ = 'aptitude_progress'
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    category = db.Column(db.String(50), nullable=False)
+    topic_name = db.Column(db.String(100), nullable=False)
+    status = db.Column(db.String(20), default='Not Started')
+    score = db.Column(db.Integer, default=0)
+    date_updated = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
