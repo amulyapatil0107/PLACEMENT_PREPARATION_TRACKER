@@ -1,2 +1,3 @@
 from datetime import datetime, date
-from flask_sqlalchemy import SQLAlchem
+from flask_sqlalchemy import SQLAlchemy
+
