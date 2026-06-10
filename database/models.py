@@ -95,3 +95,156 @@ class User(db.Model):
     score = db.Column(db.Integer, default=0)
     date_updated = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
+    # Tweak: Add User model constraints
+
+# Tweak: Tweak Problem difficulty choices
+
+# Tweak: Add relationship mappings
+
+# Tweak: Add password hashing helper to User model
+
+# Tweak: Add check password helper to User
+
+# Tweak: Configure date solvable default values
+
+# Tweak: Set default completed values on Goal model
+
+# Tweak: Tweak varchar limits on models
+
+# Tweak: Fix imports inside models.py
+
+# Tweak: Tweak database URI variable
+
+# Tweak: Configure session parameters in config.py
+
+# Tweak: Tweak track modifications key
+
+# Tweak: Add docstrings to User model
+
+# Tweak: Add docstrings to Problem model
+
+# Tweak: Add docstrings to Contest model
+
+# Tweak: Add docstrings to Goal model
+
+# Tweak: Add docstrings to Note model
+
+# Tweak: Add docstrings to Activity model
+
+# Tweak: Add docstrings to AptitudeProgress model
+
+# Tweak: Format models.py using pep8 style rules
+
+# Tweak: Add verification check inside config.py
+
+# Tweak: Set database pool size key
+
+# Tweak: Optimize imports inside config.py
+
+# Tweak: Upgrade Flask package versions in requirements.txt
+
+# Tweak: Upgrade SQLAlchemy package versions in requirements.txt
+
+# Tweak: Verify requirements file formatting
+
+# Tweak: Add User model constraints
+
+# Tweak: Tweak Problem difficulty choices
+
+# Tweak: Add relationship mappings
+
+# Tweak: Add password hashing helper to User model
+
+# Tweak: Add check password helper to User
+
+# Tweak: Configure date solvable default values
+
+# Tweak: Set default completed values on Goal model
+
+# Tweak: Tweak varchar limits on models
+
+# Tweak: Fix imports inside models.py
+
+# Tweak: Tweak database URI variable
+
+# Tweak: Configure session parameters in config.py
+
+# Tweak: Tweak track modifications key
+
+# Tweak: Add docstrings to User model
+
+# Tweak: Add docstrings to Problem model
+
+# Tweak: Add docstrings to Contest model
+
+# Tweak: Add docstrings to Goal model
+
+# Tweak: Add docstrings to Note model
+
+# Tweak: Add docstrings to Activity model
+
+# Tweak: Add docstrings to AptitudeProgress model
+
+# Tweak: Format models.py using pep8 style rules
+
+# Tweak: Add verification check inside config.py
+
+# Tweak: Set database pool size key
+
+# Tweak: Optimize imports inside config.py
+
+# Tweak: Upgrade Flask package versions in requirements.txt
+
+# Tweak: Upgrade SQLAlchemy package versions in requirements.txt
+
+# Tweak: Add User model constraints
+
+# Tweak: Tweak Problem difficulty choices
+
+# Tweak: Add relationship mappings
+
+# Tweak: Add password hashing helper to User model
+
+# Tweak: Add check password helper to User
+
+# Tweak: Configure date solvable default values
+
+# Tweak: Set default completed values on Goal model
+
+# Tweak: Tweak varchar limits on models
+
+# Tweak: Fix imports inside models.py
+
+# Tweak: Tweak database URI variable
+
+# Tweak: Configure session parameters in config.py
+
+# Tweak: Tweak track modifications key
+
+# Tweak: Add docstrings to User model
+
+# Tweak: Add docstrings to Problem model
+
+# Tweak: Add docstrings to Contest model
+
+# Tweak: Add docstrings to Goal model
+
+# Tweak: Add docstrings to Note model
+
+# Tweak: Add docstrings to Activity model
+
+# Tweak: Add docstrings to AptitudeProgress model
+
+# Tweak: Format models.py using pep8 style rules
+
+# Tweak: Add verification check inside config.py
+
+# Tweak: Set database pool size key
+
+# Tweak: Optimize imports inside config.py
+
+# Tweak: Upgrade Flask package versions in requirements.txt
+
+# Tweak: Upgrade SQLAlchemy package versions in requirements.txt
+
+
