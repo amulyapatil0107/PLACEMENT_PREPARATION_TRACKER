@@ -54,3 +54,15 @@ class User(db.Model):
     rating_after = db.Column(db.Integer, nullable=True)
     rating_change = db.Column(db.Integer, nullable=True)
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
+
+    class Goal(db.Model):
+    __tablename__ = 'goals'
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    description = db.Column(db.String(255), nullable=False)
+    target_type = db.Column(db.String(50), nullable=False)
+    target_value = db.Column(db.Integer, nullable=False)
+    current_value = db.Column(db.Integer, default=0)
+    deadline = db.Column(db.Date, nullable=False)
+    is_completed = db.Column(db.Boolean, default=False)
+    date_created = db.Column(db.DateTime, default=datetime.utcnow
