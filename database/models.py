@@ -41,3 +41,16 @@ class User(db.Model):
     notes = db.Column(db.Text, nullable=True)
     date_solved = db.Column(db.Date, nullable=True)
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
+
+    class Contest(db.Model):
+    __tablename__ = 'contests'
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    name = db.Column(db.String(200), nullable=False)
+    platform = db.Column(db.String(50), nullable=False)
+    date = db.Column(db.Date, nullable=False)
+    rank = db.Column(db.Integer, nullable=False)
+    rating_before = db.Column(db.Integer, nullable=True)
+    rating_after = db.Column(db.Integer, nullable=True)
+    rating_change = db.Column(db.Integer, nullable=True)
+    date_created = db.Column(db.DateTime, default=datetime.utcnow)
