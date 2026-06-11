@@ -44,3 +44,8 @@ def login():
     form = LoginForm(request.form)
     if request.method == 'POST' and form.validate():
         user = User.query.filter_by(username=form.username.data).first()
+
+        if user and user.check_password(form.password.data):
+            session['user_id'] = user.id
+            session['username'] = user.username
+            session['is_admin'] = user.is_admin
