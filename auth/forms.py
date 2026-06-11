@@ -19,3 +19,14 @@ class RegistrationForm(Form):
 class LoginForm(Form):
     username = StringField('Username', [validators.DataRequired()])
     password = PasswordField('Password', [validators.DataRequired()])
+
+class ProfileForm(Form):
+    email = EmailField('Email Address', [
+        validators.Length(min=6, max=35),
+        validators.Email(),
+        validators.DataRequired()
+    ])
+    password = PasswordField('New Password (leave blank to keep current)', [
+        validators.Optional(),
+        validators.Length(min=6)
+    ])
