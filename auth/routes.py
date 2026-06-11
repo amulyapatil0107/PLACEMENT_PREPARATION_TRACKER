@@ -65,3 +65,17 @@ def logout():
     session.clear()
     flash('You have been logged out.', 'info')
     return redirect(url_for('auth.login'))
+
+@auth_bp.route('/profile', methods=['GET', 'POST'])
+@login_required
+def profile():
+    user = User.query.get(session['user_id'])
+    form = ProfileForm(request.form, obj=user)
+    if request.method == 'POST' and form.validate():
+        user.email = form.email.data
+        if form.password.data:
+            user.set_password(form.password.data)
+        db.session.commit()
+        flash('Profile updated successfully!', 'success')
+        return redirect(url_for('auth.profile'))
+    return render_template('profile.html', form=form, user=user)
