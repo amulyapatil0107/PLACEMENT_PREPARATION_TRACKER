@@ -4,3 +4,8 @@ class RegistrationForm(Form):
         validators.Length(min=4, max=25),
         validators.DataRequired()
     ])
+     email = EmailField('Email Address', [
+        validators.Length(min=6, max=35),
+        validators.Email(),
+        validators.DataRequired()
+    ])
