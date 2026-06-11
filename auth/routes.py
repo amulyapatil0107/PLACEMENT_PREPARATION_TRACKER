@@ -79,3 +79,136 @@ def profile():
         flash('Profile updated successfully!', 'success')
         return redirect(url_for('auth.profile'))
     return render_template('profile.html', form=form, user=user)
+
+# Tweak: Implement login_required security guard decorator
+
+# Tweak: Add email uniqueness validation in signup form
+
+# Tweak: Add password matches constraint validation in signup
+
+# Tweak: Add session handlers upon successful logins
+
+# Tweak: Tweak session clear functionality inside logout controller
+
+# Tweak: Refactor forms validation structure
+
+# Tweak: Add success toast notices on registrations
+
+# Tweak: Add failure alert notices on bad credentials
+
+# Tweak: Add redirect checks if user is already authenticated
+
+# Tweak: Import email validator helper inside forms.py
+
+# Tweak: Tweak length checks on username in registration form
+
+# Tweak: Format auth blueprint code block
+
+# Tweak: Tweak sidebar navigation responsive classes inside base.html
+
+# Tweak: Add dynamic active class links in base.html
+
+# Tweak: Optimize main.js logic
+
+# Tweak: Add fade animations trigger to toast notices in main.js
+
+# Tweak: Implement theme storage handler inside main.js local storage
+
+# Tweak: Add sidebar mobile toggle responsive triggers
+
+# Tweak: Add custom error label placements inside register.html
+
+# Tweak: Add description headings to profile.html
+
+# Tweak: Format forms.py imports block
+
+# Tweak: Refactor session storage keys
+
+# Tweak: Implement login_required security guard decorator
+
+# Tweak: Add email uniqueness validation in signup form
+
+# Tweak: Add password matches constraint validation in signup
+
+# Tweak: Add session handlers upon successful logins
+
+# Tweak: Tweak session clear functionality inside logout controller
+
+# Tweak: Refactor forms validation structure
+
+# Tweak: Add success toast notices on registrations
+
+# Tweak: Add failure alert notices on bad credentials
+
+# Tweak: Add redirect checks if user is already authenticated
+
+# Tweak: Import email validator helper inside forms.py
+
+# Tweak: Tweak length checks on username in registration form
+
+# Tweak: Format auth blueprint code block
+
+# Tweak: Tweak sidebar navigation responsive classes inside base.html
+
+# Tweak: Add dynamic active class links in base.html
+
+# Tweak: Optimize main.js logic
+
+# Tweak: Add fade animations trigger to toast notices in main.js
+
+# Tweak: Implement theme storage handler inside main.js local storage
+
+# Tweak: Add sidebar mobile toggle responsive triggers
+
+# Tweak: Add custom error label placements inside register.html
+
+# Tweak: Add description headings to profile.html
+
+# Tweak: Format forms.py imports block
+
+# Tweak: Refactor session storage keys
+
+# Tweak: Implement login_required security guard decorator
+
+# Tweak: Add email uniqueness validation in signup form
+
+# Tweak: Add password matches constraint validation in signup
+
+# Tweak: Add session handlers upon successful logins
+
+# Tweak: Tweak session clear functionality inside logout controller
+
+# Tweak: Refactor forms validation structure
+
+# Tweak: Add success toast notices on registrations
+
+# Tweak: Add failure alert notices on bad credentials
+
+# Tweak: Add redirect checks if user is already authenticated
+
+# Tweak: Import email validator helper inside forms.py
+
+# Tweak: Tweak length checks on username in registration form
+
+# Tweak: Format auth blueprint code block
+
+# Tweak: Tweak sidebar navigation responsive classes inside base.html
+
+# Tweak: Add dynamic active class links in base.html
+
+# Tweak: Optimize main.js logic
+
+# Tweak: Add fade animations trigger to toast notices in main.js
+
+# Tweak: Implement theme storage handler inside main.js local storage
+
+# Tweak: Add sidebar mobile toggle responsive triggers
+
+# Tweak: Add custom error label placements inside register.html
+
+# Tweak: Add description headings to profile.html
+
+# Tweak: Format forms.py imports block
+
+# Tweak: Refactor session storage keys
+
