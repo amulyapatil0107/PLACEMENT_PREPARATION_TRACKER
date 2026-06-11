@@ -22,3 +22,6 @@ def register():
     form = RegistrationForm(request.form)
     if request.method == 'POST' and form.validate():
         existing_user = User.query.filter((User.username == form.username.data) | (User.email == form.email.data)).first()
+        if existing_user:
+            flash('Username or Email already exists.', 'danger')
+            return render_template('register.html', form=form)
