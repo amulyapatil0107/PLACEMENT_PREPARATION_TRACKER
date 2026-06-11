@@ -49,3 +49,11 @@ def login():
             session['user_id'] = user.id
             session['username'] = user.username
             session['is_admin'] = user.is_admin
+
+             log_activity(user.id, 'Login', f'User {user.username} logged in.')
+
+            flash(f'Welcome back, {user.username}!', 'success')
+            return redirect(url_for('dashboard'))
+        else:
+            flash('Invalid username or password.', 'danger')
+    return render_template('login.html', form=form
