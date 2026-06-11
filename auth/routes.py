@@ -36,3 +36,11 @@ def register():
         flash('Registration successful! You can now log in.', 'success')
         return redirect(url_for('auth.login'))
     return render_template('register.html', form=form)
+
+@auth_bp.route('/login', methods=['GET', 'POST'])
+def login():
+    if 'user_id' in session:
+        return redirect(url_for('dashboard'))
+    form = LoginForm(request.form)
+    if request.method == 'POST' and form.validate():
+        user = User.query.filter_by(username=form.username.data).first()
