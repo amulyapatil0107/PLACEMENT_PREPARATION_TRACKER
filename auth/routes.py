@@ -15,4 +15,10 @@ def login_required(f):
         return f(*args, **kwargs)
     return decorated_function
 
-
+@auth_bp.route('/register', methods=['GET', 'POST'])
+def register():
+    if 'user_id' in session:
+        return redirect(url_for('dashboard'))
+    form = RegistrationForm(request.form)
+    if request.method == 'POST' and form.validate():
+        existing_user = User.query.filter((User.username == form.username.data) | (User.email == form.email.data)).first()
