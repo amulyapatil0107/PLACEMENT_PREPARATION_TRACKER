@@ -38,3 +38,15 @@ def get_monthly_solving_progress(user_id):
 def get_contest_participation_stats(user_id):
     stats = db.session.query(
         Contest.platform, 
+        func.count(Contest.id)
+    ).filter_by(user_id=user_id).group_by(Contest.platform).all()
+    return {plat: count for plat, count in stats}
+
+def get_goal_completion_stats(user_id):
+    total = Goal.query.filter_by(user_id=user_id).count()
+    completed = Goal.query.filter_by(user_id=user_id, is_completed=True).count()
+    return {
+        'total': total,
+        'completed': completed,
+        'pending': total - completed
+    }
