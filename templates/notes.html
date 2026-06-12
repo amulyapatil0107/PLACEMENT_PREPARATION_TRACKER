@@ -1,0 +1,196 @@
+{% extends "base.html" %}
+{% block title %}Interview Notes - PrepTracker{% endblock %}
+{% block header_title %}Interview Notes Module{% endblock %}
+{% block content %}
+<div class="card" style="margin-bottom: 2rem;">
+    <div style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;" onclick="document.getElementById('add-note-form').classList.toggle('hidden')">
+        <h3 style="margin: 0;"><i class="fa-solid fa-file-pen" style="color: var(--primary-color);"></i> Write a New Interview Note</h3>
+        <i class="fa-solid fa-chevron-down"></i>
+    </div>
+    <form id="add-note-form" class="hidden" method="POST" action="{{ url_for('notes.add_note') }}" style="margin-top: 1.5rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+        <div class="grid-container" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+            <div class="form-group" style="grid-column: span 2;">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" class="form-input" required placeholder="e.g. ACID Properties in DBMS">
+            </div>
+            <div class="form-group">
+                <label for="category">Category</label>
+                <select id="category" name="category" class="form-input" required>
+                    <option value="OOP">OOP</option>
+                    <option value="DBMS">DBMS</option>
+                    <option value="Operating Systems">Operating Systems</option>
+                    <option value="Computer Networks">Computer Networks</option>
+                    <option value="HR Questions">HR Questions</option>
+                    <option value="General">General</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group" style="margin-top: 1rem;">
+            <label for="content">Note Content</label>
+            <textarea id="content" name="content" class="form-input" rows="8" required placeholder="Type notes here..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Save Note</button>
+    </form>
+</div>
+
+<div class="card" style="margin-bottom: 2rem; padding: 1.25rem;">
+    <form method="GET" action="{{ url_for('notes.list_notes') }}" class="filter-panel">
+        <div class="filter-group" style="flex: 2; min-width: 200px;">
+            <label>Search Notes</label>
+            <input type="text" name="search" class="form-input filter-input" placeholder="Search by title or content..." value="{{ search }}">
+        </div>
+        <div class="filter-group">
+            <label>Category Filter</label>
+            <select name="category" class="form-input filter-input">
+                <option value="">All Categories</option>
+                {% for cat in categories %}
+                    <option value="{{ cat }}" {% if category == cat %}selected{% endif %}>{{ cat }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div style="display: flex; gap: 0.5rem;">
+            <button type="submit" class="btn btn-primary" style="padding: 0.6rem 1rem;"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+            <a href="{{ url_for('notes.list_notes') }}" class="btn btn-secondary" style="padding: 0.6rem 1rem;">Reset</a>
+        </div>
+    </form>
+</div>
+
+<div class="grid-container" style="grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));">
+    {% if notes %}
+        {% for note in notes %}
+            <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                        <span style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase; background: rgba(99, 102, 241, 0.15); color: var(--primary-color); border: 1px solid rgba(99, 102, 241, 0.2); padding: 0.25rem 0.6rem; border-radius: 8px;">
+                            {{ note.category }}
+                        </span>
+                        <div style="display: flex; gap: 0.25rem;">
+                            <button class="icon-btn" style="width: 32px; height: 32px; font-size: 0.85rem;" onclick="openEditNoteModal('{{ note.id }}', '{{ note.title }}', '{{ note.category }}', `{{ note.content }}`)">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <form method="POST" action="{{ url_for('notes.delete_note', id=note.id) }}" onsubmit="return confirm('Are you sure you want to delete this note?')">
+                                <button type="submit" class="icon-btn" style="width: 32px; height: 32px; font-size: 0.85rem; color: var(--danger-color);"><i class="fa-solid fa-trash"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                    <h3 style="font-size: 1.15rem; margin-bottom: 0.75rem; font-family: var(--font-heading);">{{ note.title }}</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; white-space: pre-line; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 1rem;">
+                        {{ note.content }}
+                    </p>
+                </div>
+                <div style="border-top: 1px solid var(--border-color); padding-top: 0.75rem; font-size: 0.75rem; color: var(--text-muted); display: flex; justify-content: space-between;">
+                    <span>Updated: {{ note.date_updated.strftime('%Y-%m-%d') }}</span>
+                    <span style="cursor: pointer; color: var(--primary-color);" onclick="openViewNoteModal('{{ note.title }}', '{{ note.category }}', `{{ note.content }}`)">Read Full Note</span>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="card" style="grid-column: 1 / -1; text-align: center; color: var(--text-muted); padding: 4rem 0;">
+            <i class="fa-solid fa-folder-open" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+            <p>No notes found. Create your first preparation note now!</p>
+        </div>
+    {% endif %}
+</div>
+
+<div id="edit-note-modal" class="modal hidden">
+    <div class="modal-content card" style="width: 600px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+            <h3>Edit Note</h3>
+            <button onclick="closeEditNoteModal()" class="icon-btn" style="border: none; background: none; font-size: 1.5rem;">&times;</button>
+        </div>
+        <form id="edit-note-form" method="POST" action="">
+            <div class="form-group">
+                <label for="edit-n-title">Title</label>
+                <input type="text" id="edit-n-title" name="title" class="form-input" required>
+            </div>
+            <div class="form-group">
+                <label for="edit-n-category">Category</label>
+                <select id="edit-n-category" name="category" class="form-input">
+                    <option value="OOP">OOP</option>
+                    <option value="DBMS">DBMS</option>
+                    <option value="Operating Systems">Operating Systems</option>
+                    <option value="Computer Networks">Computer Networks</option>
+                    <option value="HR Questions">HR Questions</option>
+                    <option value="General">General</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="edit-n-content">Content</label>
+                <textarea id="edit-n-content" name="content" class="form-input" rows="8" required></textarea>
+            </div>
+            <div style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 1.5rem;">
+                <button type="button" onclick="closeEditNoteModal()" class="btn btn-secondary">Cancel</button>
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="view-note-modal" class="modal hidden">
+    <div class="modal-content card" style="width: 700px; max-height: 85vh; overflow-y: auto;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.75rem;">
+            <div>
+                <span id="view-n-category" style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase; background: rgba(99, 102, 241, 0.15); color: var(--primary-color); padding: 0.25rem 0.6rem; border-radius: 8px;"></span>
+                <h2 id="view-n-title" style="margin-top: 0.5rem; font-family: var(--font-heading);"></h2>
+            </div>
+            <button onclick="closeViewNoteModal()" class="icon-btn" style="border: none; background: none; font-size: 1.5rem;">&times;</button>
+        </div>
+        <p id="view-n-content" style="white-space: pre-wrap; font-size: 0.95rem; line-height: 1.6; color: var(--text-primary);"></p>
+        <div style="display: flex; justify-content: flex-end; margin-top: 2rem;">
+            <button onclick="closeViewNoteModal()" class="btn btn-secondary">Close</button>
+        </div>
+    </div>
+</div>
+
+<style>
+.hidden { display: none !important; }
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+.modal-content {
+    background: var(--bg-color);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    border: 1px solid var(--border-color);
+}
+</style>
+
+<script>
+function openEditNoteModal(id, title, category, content) {
+    const modal = document.getElementById('edit-note-modal');
+    const form = document.getElementById('edit-note-form');
+    form.action = `/notes/edit/` + id;
+    
+    document.getElementById('edit-n-title').value = title;
+    document.getElementById('edit-n-category').value = category;
+    document.getElementById('edit-n-content').value = content;
+    
+    modal.classList.remove('hidden');
+}
+
+function closeEditNoteModal() {
+    document.getElementById('edit-note-modal').classList.add('hidden');
+}
+
+function openViewNoteModal(title, category, content) {
+    const modal = document.getElementById('view-note-modal');
+    document.getElementById('view-n-title').innerText = title;
+    document.getElementById('view-n-category').innerText = category;
+    document.getElementById('view-n-content').innerText = content;
+    modal.classList.remove('hidden');
+}
+
+function closeViewNoteModal() {
+    document.getElementById('view-note-modal').classList.add('hidden');
+}
+</script>
+{% endblock %}
