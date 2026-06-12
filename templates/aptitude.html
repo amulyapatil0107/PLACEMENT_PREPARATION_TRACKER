@@ -34,3 +34,21 @@
                     {% if category == 'Quantitative Aptitude' %}<i class="fa-solid fa-calculator" style="color: var(--primary-color);"></i>
                     {% elif category == 'Logical Reasoning' %}<i class="fa-solid fa-lightbulb" style="color: var(--warning-color);"></i>
                     {% else %}<i class="fa-solid fa-comments" style="color: var(--accent-cyan);"></i>
+                    {% endif %}
+                    {{ category }}
+                </span>
+                <span style="font-size: 0.85rem; color: var(--text-secondary);">
+                    {{ items|selectattr('status', 'equalto', 'Completed')|list|length }} / {{ items|length }} Done
+                </span>
+            </h3>
+            
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                {% for item in items %}
+                    <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.75rem; background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 10px;">
+                        <div style="flex: 1; margin-right: 1rem;">
+                            <strong style="font-size: 0.95rem;">{{ item.topic_name }}</strong>
+                            <div style="display: flex; gap: 0.5rem; align-items: center; margin-top: 0.25rem;">
+                                <span style="font-size: 0.75rem; font-weight: 600; color: {% if item.status == 'Completed' %}var(--success-color){% elif item.status == 'In Progress' %}var(--warning-color){% else %}var(--text-muted){% endif %};">
+                                    {{ item.status }}
+                                </span>
+                                {% if item.status == 'Completed' %}
