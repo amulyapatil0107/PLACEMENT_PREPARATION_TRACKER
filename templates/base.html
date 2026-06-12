@@ -19,6 +19,7 @@
                 <i class="fa-solid fa-graduation-cap logo-icon"></i>
                 <span class="logo-text">PrepTracker</span>
             </div>
+            
             <nav class="sidebar-menu">
                 <a href="{{ url_for('dashboard') }}" class="menu-item {% if request.path == url_for('dashboard') %}active{% endif %}">
                     <i class="fa-solid fa-chart-line"></i> <span>Dashboard</span>
@@ -47,6 +48,7 @@
                 </a>
                 {% endif %}
             </nav>
+
             <div class="sidebar-footer">
                 <div class="user-info">
                     <i class="fa-solid fa-circle-user avatar"></i>
@@ -61,6 +63,7 @@
             </div>
         </aside>
         {% endif %}
+
         <main class="main-content {% if not session.get('user_id') %}full-width{% endif %}">
             {% if session.get('user_id') %}
             <header class="app-header">
@@ -79,12 +82,30 @@
                 </div>
             </header>
             {% endif %}
+
             <div class="content-wrapper">
                 {% block content %}{% endblock %}
             </div>
         </main>
     </div>
+
     <div id="toast-container" class="toast-container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="toast {{ category }}">
+                        <div class="toast-content">
+                            <i class="fa-solid {% if category == 'success' %}fa-circle-check{% elif category == 'danger' %}fa-circle-exclamation{% elif category == 'info' %}fa-circle-info{% else %}fa-circle-question{% endif %}"></i>
+                            <span class="toast-text">{{ message }}</span>
+                        </div>
+                        <button class="toast-close-btn">&times;</button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
     </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block scripts %}{% endblock %}
 </body>
 </html>
