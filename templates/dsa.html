@@ -8,3 +8,13 @@
         <i class="fa-solid fa-chevron-down"></i>
     </div>
     <form id="add-problem-form" class="hidden" method="POST" action="{{ url_for('dsa.add_problem') }}" style="margin-top: 1.5rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+        <div class="grid-container" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+            <div class="form-group">
+                <label for="name">Problem Name</label>
+                <input type="text" id="name" name="name" class="form-input" required placeholder="e.g. Two Sum">
+            </div>
+            <div class="form-group">
+                <label for="topic">Topic</label>
+                <input type="text" id="topic" name="topic" class="form-input" required placeholder="e.g. Arrays, Trees">
+            </div>
+            <div class="form-group">
