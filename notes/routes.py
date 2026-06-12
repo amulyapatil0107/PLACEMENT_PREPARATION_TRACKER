@@ -50,3 +50,4 @@ def edit_note(id):
     note.content = request.form.get('content')
     note.category = request.form.get('category')
     
+    db.session.commit()
