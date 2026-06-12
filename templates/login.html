@@ -8,6 +8,12 @@
             <h1>Welcome Back</h1>
             <p>Log in to track your placement preparation</p>
         </div>
+        <form method="POST" action="{{ url_for('auth.login') }}">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" class="form-input" required placeholder="Enter username">
+            </div>
+        </form>
     </div>
 </div>
 {% endblock %}
