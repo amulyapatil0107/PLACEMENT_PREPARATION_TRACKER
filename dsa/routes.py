@@ -50,3 +50,8 @@ def add_problem():
     if status_val:
         date_solved = datetime.today().date()
         
+    problem = Problem(user_id=user_id, name=name, topic=topic, difficulty=difficulty, 
+                      platform=platform, status=status_val, notes=notes, date_solved=date_solved)
+    db.session.add(problem)
+    db.session.commit()
+    
