@@ -49,3 +49,9 @@
     </form>
 </div>
 
+<div class="card" style="margin-bottom: 2rem; padding: 1.25rem;">
+    <form method="GET" action="{{ url_for('dsa.list_problems') }}" class="filter-panel">
+        <div class="filter-group" style="flex: 2; min-width: 200px;">
+            <label>Search</label>
+            <input type="text" name="search" class="form-input filter-input" placeholder="Search by name or notes..." value="{{ search }}">
+        </div>
