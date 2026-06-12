@@ -37,4 +37,15 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    const toasts = document.querySelectorAll('.toast');
+    toasts.forEach(toast => {
+        const closeBtn = toast.querySelector('.toast-close-btn');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                toast.style.animation = 'slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) reverse forwards';
+                setTimeout(() => toast.remove(), 300);
+            });
+        }
+    });
 });
