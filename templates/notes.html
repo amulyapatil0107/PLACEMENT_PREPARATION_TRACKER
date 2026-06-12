@@ -2,3 +2,8 @@
 {% block title %}Interview Notes - PrepTracker{% endblock %}
 {% block header_title %}Interview Notes Module{% endblock %}
 {% block content %}
+<div class="card" style="margin-bottom: 2rem;">
+    <div style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;" onclick="document.getElementById('add-note-form').classList.toggle('hidden')">
+        <h3 style="margin: 0;"><i class="fa-solid fa-file-pen" style="color: var(--primary-color);"></i> Write a New Interview Note</h3>
+        <i class="fa-solid fa-chevron-down"></i>
+    </div>
