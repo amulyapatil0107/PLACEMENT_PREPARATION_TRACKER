@@ -52,3 +52,6 @@ def edit_note(id):
     
     db.session.commit()
     log_activity(user_id, 'Note Edit', f'Edited note: {note.title}')
+    flash('Note updated successfully!', 'success')
+    return redirect(url_for('notes.list_notes'))
+
