@@ -78,3 +78,10 @@ def edit_problem(id):
     problem.status = new_status
     problem.notes = request.form.get('notes')
     
+    if new_status and not prev_status:
+        problem.date_solved = datetime.today().date()
+        user = User.query.get(user_id)
+        update_streak(user)
+    elif not new_status:
+        problem.date_solved = None
+        
