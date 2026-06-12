@@ -68,6 +68,12 @@
                     <button class="mobile-toggle"><i class="fa-solid fa-bars"></i></button>
                     <h2>{% block header_title %}Dashboard{% endblock %}</h2>
                 </div>
+                <div class="header-actions">
+                    <div class="streak-badge">
+                        <i class="fa-solid fa-fire fire-icon"></i>
+                        <span>Streak: <strong id="streak-count">{{ session.get('streak', 0) }}</strong> days</span>
+                    </div>
+                </div>
             </header>
             {% endif %}
             <div class="content-wrapper">
