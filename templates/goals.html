@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+{% block title %}Goal Management - PrepTracker{% endblock %}
+{% block header_title %}Goals Management{% endblock %}
+{% block content %}
+<div class="card" style="margin-bottom: 2rem;">
+    <div style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;" onclick="document.getElementById('add-goal-form').classList.toggle('hidden')">
+        <h3 style="margin: 0;"><i class="fa-solid fa-bullseye" style="color: var(--primary-color);"></i> Establish a New Goal</h3>
+        <i class="fa-solid fa-chevron-down"></i>
+    </div>
+    <form id="add-goal-form" class="hidden" method="POST" action="{{ url_for('goals.add_goal') }}" style="margin-top: 1.5rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+        <div class="grid-container" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+            <div class="form-group" style="grid-column: span 2;">
+                <label for="description">Goal Description</label>
+                <input type="text" id="description" name="description" class="form-input" required placeholder="e.g. Solve 100 Tree Questions">
+            </div>
+            <div class="form-group">
+                <label for="target_type">Target Module</label>
+                <select id="target_type" name="target_type" class="form-input" required>
+                    <option value="DSA">DSA Problems (Solved)</option>
+                    <option value="Contest">Contests (Attended)</option>
+                    <option value="Aptitude">Aptitude (Completed Topics)</option>
+                    <option value="General">General (Manual Track)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="target_value">Target Quantity</label>
+                <input type="number" id="target_value" name="target_value" class="form-input" required min="1" placeholder="e.g. 50">
+            </div>
+            <div class="form-group">
+                <label for="deadline">Target Deadline</label>
+                <input type="date" id="deadline" name="deadline" class="form-input" required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Set Goal</button>
+    </form>
+</div>
+
+<div class="grid-container" style="grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));">
+    {% if goals %}
+        {% for goal in goals %}
+            <div class="card {% if goal.is_completed %}goal-completed{% endif %}" style="display: flex; flex-direction: column; justify-content: space-between; position: relative;">
+                {% if goal.is_completed %}
+                    <div style="position: absolute; top: 1rem; right: 1rem; color: var(--success-color); font-size: 1.5rem;">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                {% endif %}
+                <div>
+                    <span style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase; background: rgba(255,255,255,0.05); color: var(--text-secondary); padding: 0.25rem 0.5rem; border-radius: 6px;">
+                        {{ goal.target_type }} Target
+                    </span>
+                    <h3 style="font-size: 1.2rem; margin-top: 0.75rem; margin-bottom: 1rem; font-family: var(--font-heading); padding-right: 2rem;">
+                        {{ goal.description }}
+                    </h3>
+                    
+                    {% if goal.target_type != 'General' %}
+                        <div class="progress-container" style="margin-bottom: 1.5rem;">
+                            <div class="progress-header">
+                                <span>Progress</span>
+                                <span>{{ goal.current_value }} / {{ goal.target_value }}</span>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width: {{ (goal.current_value / goal.target_value * 100) if goal.target_value > 0 else 0 }}%; {% if goal.is_completed %}background: var(--success-color);{% endif %}"></div>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <div style="border-top: 1px solid var(--border-color); padding-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 0.8rem; color: var(--text-muted);">
+                        <i class="fa-solid fa-calendar-day"></i> Deadline: {{ goal.deadline.strftime('%Y-%m-%d') }}
+                    </span>
+                    <div style="display: flex; gap: 0.25rem;">
+                        <button class="icon-btn" style="width: 32px; height: 32px; font-size: 0.85rem;" onclick="openEditGoalModal('{{ goal.id }}', '{{ goal.description }}', '{{ goal.target_type }}', '{{ goal.target_value }}', '{{ goal.deadline.strftime('%Y-%m-%d') }}')">
+                            <i class="fa-solid fa-pen"></i>
+                        </button>
+                        <form method="POST" action="{{ url_for('goals.delete_goal', id=goal.id) }}" onsubmit="return confirm('Are you sure you want to delete this goal?')">
+                            <button type="submit" class="icon-btn" style="width: 32px; height: 32px; font-size: 0.85rem; color: var(--danger-color);"><i class="fa-solid fa-trash"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="card" style="grid-column: 1 / -1; text-align: center; color: var(--text-muted); padding: 4rem 0;">
+            <i class="fa-solid fa-bullseye" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+            <p>No active goals yet. Create clear targets to accelerate your preparation!</p>
+        </div>
+    {% endif %}
+</div>
+
+<div id="edit-goal-modal" class="modal hidden">
+    <div class="modal-content card" style="width: 500px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+            <h3>Edit Goal</h3>
+            <button onclick="closeEditGoalModal()" class="icon-btn" style="border: none; background: none; font-size: 1.5rem;">&times;</button>
+        </div>
+        <form id="edit-goal-form" method="POST" action="">
+            <div class="form-group">
+                <label for="edit-g-description">Goal Description</label>
+                <input type="text" id="edit-g-description" name="description" class="form-input" required>
+            </div>
+            <div class="form-group">
+                <label for="edit-g-target-type">Target Module</label>
+                <select id="edit-g-target-type" name="target_type" class="form-input">
+                    <option value="DSA">DSA Problems (Solved)</option>
+                    <option value="Contest">Contests (Attended)</option>
+                    <option value="Aptitude">Aptitude (Completed Topics)</option>
+                    <option value="General">General (Manual Track)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="edit-g-target-value">Target Quantity</label>
+                <input type="number" id="edit-g-target-value" name="target_value" class="form-input" required min="1">
+            </div>
+            <div class="form-group">
+                <label for="edit-g-deadline">Target Deadline</label>
+                <input type="date" id="edit-g-deadline" name="deadline" class="form-input" required>
+            </div>
+            <div style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 1.5rem;">
+                <button type="button" onclick="closeEditGoalModal()" class="btn btn-secondary">Cancel</button>
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+.hidden { display: none !important; }
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+.modal-content {
+    background: var(--bg-color);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    border: 1px solid var(--border-color);
+}
+.goal-completed {
+    border-color: rgba(16, 185, 129, 0.4);
+    background: rgba(16, 185, 129, 0.05);
+}
+</style>
+
+<script>
+function openEditGoalModal(id, description, type, val, deadline) {
+    const modal = document.getElementById('edit-goal-modal');
+    const form = document.getElementById('edit-goal-form');
+    form.action = `/goals/edit/` + id;
+    
+    document.getElementById('edit-g-description').value = description;
+    document.getElementById('edit-g-target-type').value = type;
+    document.getElementById('edit-g-target-value').value = val;
+    document.getElementById('edit-g-deadline').value = deadline;
+    
+    modal.classList.remove('hidden');
+}
+
+function closeEditGoalModal() {
+    document.getElementById('edit-goal-modal').classList.add('hidden');
+}
+</script>
+{% endblock %}
