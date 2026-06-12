@@ -19,17 +19,17 @@ class User(db.Model):
     problems = db.relationship('Problem', backref='user', lazy=True, cascade="all, delete-orphan")
     contests = db.relationship('Contest', backref='user', lazy=True, cascade="all, delete-orphan")
     goals = db.relationship('Goal', backref='user', lazy=True, cascade="all, delete-orphan")
-     notes = db.relationship('Note', backref='user', lazy=True, cascade="all, delete-orphan")
+    notes = db.relationship('Note', backref='user', lazy=True, cascade="all, delete-orphan")
     activities = db.relationship('Activity', backref='user', lazy=True, cascade="all, delete-orphan")
     aptitude_progress = db.relationship('AptitudeProgress', backref='user', lazy=True, cascade="all, delete-orphan")
 
-     def set_password(self, password):
+    def set_password(self, password):
         self.password_hash = generate_password_hash(password)
 
-     def check_password(self, password):
+    def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
-    class Problem(db.Model):
+class Problem(db.Model):
     __tablename__ = 'problems'
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
@@ -42,7 +42,7 @@ class User(db.Model):
     date_solved = db.Column(db.Date, nullable=True)
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
 
-    class Contest(db.Model):
+class Contest(db.Model):
     __tablename__ = 'contests'
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
@@ -55,7 +55,7 @@ class User(db.Model):
     rating_change = db.Column(db.Integer, nullable=True)
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
 
-    class Goal(db.Model):
+class Goal(db.Model):
     __tablename__ = 'goals'
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
@@ -67,7 +67,7 @@ class User(db.Model):
     is_completed = db.Column(db.Boolean, default=False)
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
 
-    class Note(db.Model):
+class Note(db.Model):
     __tablename__ = 'notes'
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
@@ -77,7 +77,7 @@ class User(db.Model):
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
     date_updated = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
-    class Activity(db.Model):
+class Activity(db.Model):
     __tablename__ = 'activities'
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
@@ -85,7 +85,7 @@ class User(db.Model):
     description = db.Column(db.String(255), nullable=False)
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
 
-    class AptitudeProgress(db.Model):
+class AptitudeProgress(db.Model):
     __tablename__ = 'aptitude_progress'
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
@@ -95,7 +95,7 @@ class User(db.Model):
     score = db.Column(db.Integer, default=0)
     date_updated = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
-    # Tweak: Add User model constraints
+# Tweak: Add User model constraints
 
 # Tweak: Tweak Problem difficulty choices
 
@@ -246,5 +246,3 @@ class User(db.Model):
 # Tweak: Upgrade Flask package versions in requirements.txt
 
 # Tweak: Upgrade SQLAlchemy package versions in requirements.txt
-
-

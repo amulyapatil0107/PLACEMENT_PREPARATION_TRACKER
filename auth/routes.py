@@ -25,14 +25,14 @@ def register():
         if existing_user:
             flash('Username or Email already exists.', 'danger')
             return render_template('register.html', form=form)
-
-         user = User(username=form.username.data, email=form.email.data)
+        
+        user = User(username=form.username.data, email=form.email.data)
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
-
+        
         log_activity(user.id, 'Register', f'User {user.username} registered.')
-
+        
         flash('Registration successful! You can now log in.', 'success')
         return redirect(url_for('auth.login'))
     return render_template('register.html', form=form)
@@ -44,19 +44,18 @@ def login():
     form = LoginForm(request.form)
     if request.method == 'POST' and form.validate():
         user = User.query.filter_by(username=form.username.data).first()
-
         if user and user.check_password(form.password.data):
             session['user_id'] = user.id
             session['username'] = user.username
             session['is_admin'] = user.is_admin
-
-             log_activity(user.id, 'Login', f'User {user.username} logged in.')
-
+            
+            log_activity(user.id, 'Login', f'User {user.username} logged in.')
+            
             flash(f'Welcome back, {user.username}!', 'success')
             return redirect(url_for('dashboard'))
         else:
             flash('Invalid username or password.', 'danger')
-    return render_template('login.html', form=form
+    return render_template('login.html', form=form)
 
 @auth_bp.route('/logout')
 @login_required
@@ -211,4 +210,3 @@ def profile():
 # Tweak: Format forms.py imports block
 
 # Tweak: Refactor session storage keys
-
