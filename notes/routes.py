@@ -14,3 +14,5 @@ def list_notes():
     search = request.args.get('search', '')
     category = request.args.get('category', '')
     
+    if search:
+        query = query.filter(Note.title.like(f'%{search}%') | Note.content.like(f'%{search}%'))
