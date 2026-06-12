@@ -63,3 +63,17 @@ def update_aptitude(id):
 @login_required
 def add_custom_topic():
     user_id = session['user_id']
+    category = request.form.get('category')
+    topic_name = request.form.get('topic_name')
+    
+    if category not in DEFAULT_TOPICS:
+        flash('Invalid category.', 'danger')
+        return redirect(url_for('aptitude.list_aptitude'))
+        
+    prog = AptitudeProgress(user_id=user_id, category=category, topic_name=topic_name, status='Not Started', score=0)
+    db.session.add(prog)
+    db.session.commit()
+    
+    log_activity(user_id, 'Aptitude Add Topic', f"Added custom aptitude topic: {topic_name}")
+    flash(f"Added custom topic {topic_name} in {category}.", 'success')
+    return redirect(url_for('aptitude.list_aptitude'))
