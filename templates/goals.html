@@ -82,3 +82,24 @@
         {% endfor %}
     {% else %}
         <div class="card" style="grid-column: 1 / -1; text-align: center; color: var(--text-muted); padding: 4rem 0;">
+            <i class="fa-solid fa-bullseye" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+            <p>No active goals yet. Create clear targets to accelerate your preparation!</p>
+        </div>
+    {% endif %}
+</div>
+
+<div id="edit-goal-modal" class="modal hidden">
+    <div class="modal-content card" style="width: 500px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+            <h3>Edit Goal</h3>
+            <button onclick="closeEditGoalModal()" class="icon-btn" style="border: none; background: none; font-size: 1.5rem;">&times;</button>
+        </div>
+        <form id="edit-goal-form" method="POST" action="">
+            <div class="form-group">
+                <label for="edit-g-description">Goal Description</label>
+                <input type="text" id="edit-g-description" name="description" class="form-input" required>
+            </div>
+            <div class="form-group">
+                <label for="edit-g-target-type">Target Module</label>
+                <select id="edit-g-target-type" name="target_type" class="form-input">
+                    <option value="DSA">DSA Problems (Solved)</option>
