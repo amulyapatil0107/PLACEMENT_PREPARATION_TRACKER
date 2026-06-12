@@ -59,3 +59,6 @@ def add_problem():
     update_streak(user)
     log_activity(user_id, 'DSA Solved' if status_val else 'DSA Added', f'Added problem: {name}')
     
+    flash('Problem added successfully!', 'success')
+    return redirect(url_for('dsa.list_problems'))
+
