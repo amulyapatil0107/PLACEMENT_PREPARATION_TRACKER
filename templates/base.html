@@ -13,6 +13,10 @@
 </head>
 <body class="dark-theme">
     <div class="app-container">
+        {% if session.get('user_id') %}
+        <aside class="sidebar">
+        </aside>
+        {% endif %}
     </div>
 </body>
 </html>
