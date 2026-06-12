@@ -59,3 +59,24 @@
                     <th>Actions</th>
                 </tr>
             </thead>
+            <tbody>
+                {% if contests %}
+                    {% for contest in contests %}
+                        <tr>
+                            <td>{{ contest.date.strftime('%Y-%m-%d') }}</td>
+                            <td><strong>{{ contest.name }}</strong></td>
+                            <td>{{ contest.platform }}</td>
+                            <td>#{{ contest.rank }}</td>
+                            <td>{{ contest.rating_before or '-' }}</td>
+                            <td>{{ contest.rating_after or '-' }}</td>
+                            <td>
+                                {% if contest.rating_change is not none %}
+                                    {% if contest.rating_change > 0 %}
+                                        <span style="color: var(--success-color); font-weight: 600;"><i class="fa-solid fa-arrow-trend-up"></i> +{{ contest.rating_change }}</span>
+                                    {% else %}
+                                        <span style="color: var(--danger-color); font-weight: 600;"><i class="fa-solid fa-arrow-trend-down"></i> {{ contest.rating_change }}</span>
+                                    {% endif %}
+                                {% else %}
+                                    -
+                                {% endif %}
+                            </td>
