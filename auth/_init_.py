@@ -1,0 +1,2 @@
+# Auth blueprint init
+

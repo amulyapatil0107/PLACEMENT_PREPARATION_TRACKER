@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Login - PrepTracker{% endblock %}
+{% block content %}
+<div class="main-content full-width">
+    <div class="card auth-card">
+        <div class="auth-header">
+            <i class="fa-solid fa-graduation-cap logo-icon" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+            <h1>Welcome Back</h1>
+            <p>Log in to track your placement preparation</p>
+        </div>
+        <form method="POST" action="{{ url_for('auth.login') }}">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" class="form-input" required placeholder="Enter username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" class="form-input" required placeholder="Enter password">
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Log In</button>
+        </form>
+        <div class="auth-links">
+            Don't have an account? <a href="{{ url_for('auth.register') }}">Register here</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

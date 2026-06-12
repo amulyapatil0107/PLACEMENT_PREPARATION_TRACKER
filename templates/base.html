@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Placement Prep Tracker{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="dark-theme">
+    <div class="app-container">
+        {% if session.get('user_id') %}
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="fa-solid fa-graduation-cap logo-icon"></i>
+                <span class="logo-text">PrepTracker</span>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <a href="{{ url_for('dashboard') }}" class="menu-item {% if request.path == url_for('dashboard') %}active{% endif %}">
+                    <i class="fa-solid fa-chart-line"></i> <span>Dashboard</span>
+                </a>
+                <a href="{{ url_for('dsa.list_problems') }}" class="menu-item {% if request.path == url_for('dsa.list_problems') %}active{% endif %}">
+                    <i class="fa-solid fa-code"></i> <span>DSA Tracker</span>
+                </a>
+                <a href="{{ url_for('dsa.list_contests') }}" class="menu-item {% if request.path == url_for('dsa.list_contests') %}active{% endif %}">
+                    <i class="fa-solid fa-trophy"></i> <span>Contests</span>
+                </a>
+                <a href="{{ url_for('aptitude.list_aptitude') }}" class="menu-item {% if request.path == url_for('aptitude.list_aptitude') %}active{% endif %}">
+                    <i class="fa-solid fa-brain"></i> <span>Aptitude</span>
+                </a>
+                <a href="{{ url_for('notes.list_notes') }}" class="menu-item {% if request.path == url_for('notes.list_notes') %}active{% endif %}">
+                    <i class="fa-solid fa-book-open"></i> <span>Interview Notes</span>
+                </a>
+                <a href="{{ url_for('goals.list_goals') }}" class="menu-item {% if request.path == url_for('goals.list_goals') %}active{% endif %}">
+                    <i class="fa-solid fa-bullseye"></i> <span>Goals</span>
+                </a>
+                <a href="{{ url_for('analytics.dashboard_analytics') }}" class="menu-item {% if request.path == url_for('analytics.dashboard_analytics') %}active{% endif %}">
+                    <i class="fa-solid fa-chart-pie"></i> <span>Analytics</span>
+                </a>
+                {% if session.get('is_admin') %}
+                <a href="{{ url_for('admin_panel') }}" class="menu-item {% if request.path == url_for('admin_panel') %}active{% endif %}">
+                    <i class="fa-solid fa-lock-open"></i> <span>Admin Panel</span>
+                </a>
+                {% endif %}
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <i class="fa-solid fa-circle-user avatar"></i>
+                    <div class="user-details">
+                        <span class="username">{{ session.get('username') }}</span>
+                        <a href="{{ url_for('auth.profile') }}" class="profile-link">Edit Profile</a>
+                    </div>
+                </div>
+                <a href="{{ url_for('auth.logout') }}" class="logout-btn">
+                    <i class="fa-solid fa-right-from-bracket"></i> Logout
+                </a>
+            </div>
+        </aside>
+        {% endif %}
+
+        <main class="main-content {% if not session.get('user_id') %}full-width{% endif %}">
+            {% if session.get('user_id') %}
+            <header class="app-header">
+                <div class="header-search">
+                    <button class="mobile-toggle"><i class="fa-solid fa-bars"></i></button>
+                    <h2>{% block header_title %}Dashboard{% endblock %}</h2>
+                </div>
+                <div class="header-actions">
+                    <div class="streak-badge">
+                        <i class="fa-solid fa-fire fire-icon"></i>
+                        <span>Streak: <strong id="streak-count">{{ session.get('streak', 0) }}</strong> days</span>
+                    </div>
+                    <button id="theme-toggle" class="icon-btn" title="Toggle Theme">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                </div>
+            </header>
+            {% endif %}
+
+            <div class="content-wrapper">
+                {% block content %}{% endblock %}
+            </div>
+        </main>
+    </div>
+
+    <div id="toast-container" class="toast-container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="toast {{ category }}">
+                        <div class="toast-content">
+                            <i class="fa-solid {% if category == 'success' %}fa-circle-check{% elif category == 'danger' %}fa-circle-exclamation{% elif category == 'info' %}fa-circle-info{% else %}fa-circle-question{% endif %}"></i>
+                            <span class="toast-text">{{ message }}</span>
+                        </div>
+                        <button class="toast-close-btn">&times;</button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>
