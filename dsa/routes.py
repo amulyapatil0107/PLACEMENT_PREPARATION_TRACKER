@@ -26,3 +26,6 @@ def list_problems():
         query = query.filter_by(topic=topic)
     if platform:
         query = query.filter_by(platform=platform)
+    if status != '':
+        query = query.filter_by(status=(status == 'solved'))
+        
