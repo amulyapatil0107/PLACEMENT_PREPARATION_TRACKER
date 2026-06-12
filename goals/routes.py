@@ -28,3 +28,13 @@ def update_goal_progress(user_id):
 @login_required
 def list_goals():
     user_id = session['user_id']
+    update_goal_progress(user_id)
+    
+    goals = Goal.query.filter_by(user_id=user_id).order_by(Goal.deadline.asc()).all()
+    return render_template('goals.html', goals=goals)
+
+@goals_bp.route('/goals/add', methods=['POST'])
+@login_required
+def add_goal():
+    user_id = session['user_id']
+    description = request.form.get('description')
