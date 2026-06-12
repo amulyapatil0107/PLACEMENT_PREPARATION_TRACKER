@@ -32,3 +32,6 @@
         <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Save Note</button>
     </form>
 </div>
+
+<div class="card" style="margin-bottom: 2rem; padding: 1.25rem;">
+    <form method="GET" action="{{ url_for('notes.list_notes') }}" class="filter-panel">
