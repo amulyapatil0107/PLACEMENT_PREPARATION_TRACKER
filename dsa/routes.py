@@ -24,3 +24,5 @@ def list_problems():
         query = query.filter_by(difficulty=difficulty)
     if topic:
         query = query.filter_by(topic=topic)
+    if platform:
+        query = query.filter_by(platform=platform)
