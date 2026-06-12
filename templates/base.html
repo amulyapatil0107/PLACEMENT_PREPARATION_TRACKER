@@ -62,6 +62,14 @@
         </aside>
         {% endif %}
         <main class="main-content {% if not session.get('user_id') %}full-width{% endif %}">
+            {% if session.get('user_id') %}
+            <header class="app-header">
+                <div class="header-search">
+                    <button class="mobile-toggle"><i class="fa-solid fa-bars"></i></button>
+                    <h2>{% block header_title %}Dashboard{% endblock %}</h2>
+                </div>
+            </header>
+            {% endif %}
             <div class="content-wrapper">
                 {% block content %}{% endblock %}
             </div>
