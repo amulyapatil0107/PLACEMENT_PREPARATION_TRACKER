@@ -55,3 +55,32 @@
             <label>Search</label>
             <input type="text" name="search" class="form-input filter-input" placeholder="Search by name or notes..." value="{{ search }}">
         </div>
+        <div class="filter-group">
+            <label>Difficulty</label>
+            <select name="difficulty" class="form-input filter-input">
+                <option value="">All</option>
+                <option value="Easy" {% if difficulty == 'Easy' %}selected{% endif %}>Easy</option>
+                <option value="Medium" {% if difficulty == 'Medium' %}selected{% endif %}>Medium</option>
+                <option value="Hard" {% if difficulty == 'Hard' %}selected{% endif %}>Hard</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label>Topic</label>
+            <select name="topic" class="form-input filter-input">
+                <option value="">All</option>
+                {% for t in topics %}
+                    <option value="{{ t }}" {% if topic == t %}selected{% endif %}>{{ t }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="filter-group">
+            <label>Platform</label>
+            <select name="platform" class="form-input filter-input">
+                <option value="">All</option>
+                <option value="LeetCode" {% if platform == 'LeetCode' %}selected{% endif %}>LeetCode</option>
+                <option value="GeeksforGeeks" {% if platform == 'GeeksforGeeks' %}selected{% endif %}>GeeksforGeeks</option>
+                <option value="HackerRank" {% if platform == 'HackerRank' %}selected{% endif %}>HackerRank</option>
+                <option value="CodeChef" {% if platform == 'CodeChef' %}selected{% endif %}>CodeChef</option>
+                <option value="Codeforces" {% if platform == 'Codeforces' %}selected{% endif %}>Codeforces</option>
+            </select>
+        </div>
