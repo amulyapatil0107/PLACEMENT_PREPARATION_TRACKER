@@ -58,3 +58,13 @@ def add_goal():
 @login_required
 def edit_goal(id):
     user_id = session['user_id']
+    goal = Goal.query.filter_by(id=id, user_id=user_id).first_or_404()
+    
+    goal.description = request.form.get('description')
+    goal.target_type = request.form.get('target_type')
+    goal.target_value = int(request.form.get('target_value', 1))
+    deadline_str = request.form.get('deadline')
+    goal.deadline = datetime.strptime(deadline_str, '%Y-%m-%d').date()
+    
+    db.session.commit()
+    update_goal_progress(user_id)
