@@ -37,3 +37,16 @@ def list_aptitude():
     init_aptitude_topics(user_id)
     
     progress_items = AptitudeProgress.query.filter_by(user_id=user_id).all()
+    
+    grouped = {}
+    for cat in DEFAULT_TOPICS.keys():
+        grouped[cat] = [item for item in progress_items if item.category == cat]
+        
+    return render_template('aptitude.html', grouped=grouped)
+
+@aptitude_bp.route('/aptitude/update/<int:id>', methods=['POST'])
+@login_required
+def update_aptitude(id):
+    user_id = session['user_id']
+    item = AptitudeProgress.query.filter_by(id=id, user_id=user_id).first_or_404()
+    
