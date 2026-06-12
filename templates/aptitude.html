@@ -52,3 +52,21 @@
                                     {{ item.status }}
                                 </span>
                                 {% if item.status == 'Completed' %}
+                                    <span style="font-size: 0.75rem; color: var(--text-secondary);">Score: {{ item.score }}%</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;" onclick="openUpdateAptitudeModal('{{ item.id }}', '{{ item.topic_name }}', '{{ item.status }}', '{{ item.score }}')">
+                            Update
+                        </button>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+<div id="update-aptitude-modal" class="modal hidden">
+    <div class="modal-content card" style="width: 400px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+            <h3>Update Progress</h3>
