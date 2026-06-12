@@ -30,3 +30,11 @@ def get_monthly_solving_progress(user_id):
     ).group_by(
         func.strftime('%Y-%m', Problem.date_solved)
     ).order_by(
+        func.strftime('%Y-%m', Problem.date_solved).asc()
+    ).all()
+    
+    return {month: count for month, count in stats if month}
+
+def get_contest_participation_stats(user_id):
+    stats = db.session.query(
+        Contest.platform, 
