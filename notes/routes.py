@@ -18,3 +18,5 @@ def list_notes():
         query = query.filter(Note.title.like(f'%{search}%') | Note.content.like(f'%{search}%'))
     if category:
         query = query.filter_by(category=category)
+        
+    notes = query.order_by(Note.date_updated.desc()).all()
