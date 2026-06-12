@@ -47,6 +47,15 @@
                 </a>
                 {% endif %}
             </nav>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <i class="fa-solid fa-circle-user avatar"></i>
+                    <div class="user-details">
+                        <span class="username">{{ session.get('username') }}</span>
+                        <a href="{{ url_for('auth.profile') }}" class="profile-link">Edit Profile</a>
+                    </div>
+                </div>
+            </div>
         </aside>
         {% endif %}
     </div>
