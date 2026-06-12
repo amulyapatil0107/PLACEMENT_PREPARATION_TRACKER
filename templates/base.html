@@ -35,6 +35,9 @@
                 <a href="{{ url_for('notes.list_notes') }}" class="menu-item {% if request.path == url_for('notes.list_notes') %}active{% endif %}">
                     <i class="fa-solid fa-book-open"></i> <span>Interview Notes</span>
                 </a>
+                <a href="{{ url_for('goals.list_goals') }}" class="menu-item {% if request.path == url_for('goals.list_goals') %}active{% endif %}">
+                    <i class="fa-solid fa-bullseye"></i> <span>Goals</span>
+                </a>
             </nav>
         </aside>
         {% endif %}
