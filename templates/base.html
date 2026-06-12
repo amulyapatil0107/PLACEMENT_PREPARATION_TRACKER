@@ -19,6 +19,11 @@
                 <i class="fa-solid fa-graduation-cap logo-icon"></i>
                 <span class="logo-text">PrepTracker</span>
             </div>
+            <nav class="sidebar-menu">
+                <a href="{{ url_for('dashboard') }}" class="menu-item {% if request.path == url_for('dashboard') %}active{% endif %}">
+                    <i class="fa-solid fa-chart-line"></i> <span>Dashboard</span>
+                </a>
+            </nav>
         </aside>
         {% endif %}
     </div>
