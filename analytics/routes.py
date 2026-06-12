@@ -142,3 +142,27 @@ def get_analytics_data():
 
 # Tweak: Implement dsa topic stats aggregator query
 
+# Tweak: Implement difficulty stats aggregator query
+
+# Tweak: Implement monthly trend stats aggregator query
+
+# Tweak: Implement contest stats aggregator query
+
+# Tweak: Implement goals success rate aggregator query
+
+# Tweak: Implement automatic goal progress recalculator
+
+# Tweak: Add defaults aptitude topics seeder inside aptitude routes
+
+# Tweak: Log goal creation events
+
+# Tweak: Log goal update events
+
+# Tweak: Log goal completion events
+
+# Tweak: Log aptitude accuracy score updates
+
+# Tweak: Log custom aptitude topic additions
+
+# Tweak: Add update aptitude scores modal inside aptitude.html
+
