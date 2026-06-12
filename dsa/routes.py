@@ -85,3 +85,8 @@ def edit_problem(id):
     elif not new_status:
         problem.date_solved = None
         
+    db.session.commit()
+    log_activity(user_id, 'DSA Edit', f'Edited problem: {problem.name}')
+    flash('Problem updated successfully!', 'success')
+    return redirect(url_for('dsa.list_problems'))
+
