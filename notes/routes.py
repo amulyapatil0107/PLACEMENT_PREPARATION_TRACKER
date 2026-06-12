@@ -5,3 +5,6 @@ from dsa.services import log_activity
 
 notes_bp = Blueprint('notes', __name__)
 
+@notes_bp.route('/notes', methods=['GET'])
+@login_required
+def list_notes():
