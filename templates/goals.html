@@ -40,3 +40,24 @@
         {% for goal in goals %}
             <div class="card {% if goal.is_completed %}goal-completed{% endif %}" style="display: flex; flex-direction: column; justify-content: space-between; position: relative;">
                 {% if goal.is_completed %}
+                    <div style="position: absolute; top: 1rem; right: 1rem; color: var(--success-color); font-size: 1.5rem;">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                {% endif %}
+                <div>
+                    <span style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase; background: rgba(255,255,255,0.05); color: var(--text-secondary); padding: 0.25rem 0.5rem; border-radius: 6px;">
+                        {{ goal.target_type }} Target
+                    </span>
+                    <h3 style="font-size: 1.2rem; margin-top: 0.75rem; margin-bottom: 1rem; font-family: var(--font-heading); padding-right: 2rem;">
+                        {{ goal.description }}
+                    </h3>
+                    
+                    {% if goal.target_type != 'General' %}
+                        <div class="progress-container" style="margin-bottom: 1.5rem;">
+                            <div class="progress-header">
+                                <span>Progress</span>
+                                <span>{{ goal.current_value }} / {{ goal.target_value }}</span>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width: {{ (goal.current_value / goal.target_value * 100) if goal.target_value > 0 else 0 }}%; {% if goal.is_completed %}background: var(--success-color);{% endif %}"></div>
+                            </div>
