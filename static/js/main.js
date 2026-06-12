@@ -47,5 +47,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout(() => toast.remove(), 300);
             });
         }
+        
+        setTimeout(() => {
+            if (toast.parentNode) {
+                toast.style.animation = 'slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) reverse forwards';
+                setTimeout(() => toast.remove(), 300);
+            }
+        }, 4000);
     });
 });
