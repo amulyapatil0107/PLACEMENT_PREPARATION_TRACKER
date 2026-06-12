@@ -50,3 +50,16 @@ def update_aptitude(id):
     user_id = session['user_id']
     item = AptitudeProgress.query.filter_by(id=id, user_id=user_id).first_or_404()
     
+    item.status = request.form.get('status')
+    item.score = int(request.form.get('score', 0))
+    item.date_updated = datetime.utcnow()
+    
+    db.session.commit()
+    log_activity(user_id, 'Aptitude Update', f"Updated {item.topic_name} to {item.status} (Score: {item.score})")
+    flash(f"Aptitude progress updated for {item.topic_name}!", "success")
+    return redirect(url_for('aptitude.list_aptitude'))
+
+@aptitude_bp.route('/aptitude/add_custom', methods=['POST'])
+@login_required
+def add_custom_topic():
+    user_id = session['user_id']
