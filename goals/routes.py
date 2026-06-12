@@ -48,3 +48,13 @@ def add_goal():
                 target_value=target_value, deadline=deadline)
     db.session.add(goal)
     db.session.commit()
+    
+    update_goal_progress(user_id)
+    log_activity(user_id, 'Goal Created', f'Created goal: {description}')
+    flash('Goal added successfully!', 'success')
+    return redirect(url_for('goals.list_goals'))
+
+@goals_bp.route('/goals/edit/<int:id>', methods=['POST'])
+@login_required
+def edit_goal(id):
+    user_id = session['user_id']
