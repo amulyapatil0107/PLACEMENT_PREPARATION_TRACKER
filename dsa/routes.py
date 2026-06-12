@@ -108,3 +108,13 @@ def list_contests():
     contests = Contest.query.filter_by(user_id=user_id).order_by(Contest.date.desc()).all()
     return render_template('contests.html', contests=contests)
 
+@dsa_bp.route('/contests/add', methods=['POST'])
+@login_required
+def add_contest():
+    user_id = session['user_id']
+    name = request.form.get('name')
+    platform = request.form.get('platform')
+    date_str = request.form.get('date')
+    rank = int(request.form.get('rank', 0))
+    rating_before = request.form.get('rating_before')
+    rating_after = request.form.get('rating_after')
