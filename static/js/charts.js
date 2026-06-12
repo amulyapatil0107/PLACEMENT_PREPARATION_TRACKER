@@ -114,3 +114,32 @@ function renderMonthlyChart(data) {
             },
             plugins: {
                 legend: { labels: { color: '#94a3b8' } }
+            }
+        }
+    });
+}
+
+function renderContestChart(data) {
+    const ctx = document.getElementById('contestChart').getContext('2d');
+    const labels = Object.keys(data);
+    const values = Object.values(data);
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Contests Attended',
+                data: values,
+                backgroundColor: 'rgba(168, 85, 247, 0.7)',
+                borderColor: 'rgba(168, 85, 247, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                x: { grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { color: '#94a3b8' } },
+                y: { grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { color: '#94a3b8' }, beginAtZero: true }
+            },
+            plugins: {
