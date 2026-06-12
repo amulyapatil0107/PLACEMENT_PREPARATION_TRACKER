@@ -38,3 +38,5 @@ def add_note():
     
     log_activity(user_id, 'Note Created', f'Created note: {title}')
     flash('Note created successfully!', 'success')
+    return redirect(url_for('notes.list_notes'))
+
