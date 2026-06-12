@@ -68,3 +68,17 @@ def edit_goal(id):
     
     db.session.commit()
     update_goal_progress(user_id)
+    log_activity(user_id, 'Goal Edit', f'Edited goal: {goal.description}')
+    flash('Goal updated successfully!', 'success')
+    return redirect(url_for('goals.list_goals'))
+
+@goals_bp.route('/goals/delete/<int:id>', methods=['POST'])
+@login_required
+def delete_goal(id):
+    user_id = session['user_id']
+    goal = Goal.query.filter_by(id=id, user_id=user_id).first_or_404()
+    db.session.delete(goal)
+    db.session.commit()
+    log_activity(user_id, 'Goal Delete', f'Deleted goal: {goal.description}')
+    flash('Goal deleted successfully!', 'info')
+    return redirect(url_for('goals.list_goals'))
