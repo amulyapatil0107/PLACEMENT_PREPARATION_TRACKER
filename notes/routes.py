@@ -8,3 +8,7 @@ notes_bp = Blueprint('notes', __name__)
 @notes_bp.route('/notes', methods=['GET'])
 @login_required
 def list_notes():
+    user_id = session['user_id']
+    query = Note.query.filter_by(user_id=user_id)
+    
+    search = request.args.get('search', '')
