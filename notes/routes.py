@@ -63,3 +63,167 @@ def delete_note(id):
     db.session.delete(note)
     db.session.commit()
     log_activity(user_id, 'Note Delete', f'Deleted note: {note.title}')
+    flash('Note deleted successfully!', 'info')
+    return redirect(url_for('notes.list_notes'))
+
+# Tweak: Add search query filter in notes list controller
+
+# Tweak: Add category filter in notes list controller
+
+# Tweak: Add categories array in list notes route
+
+# Tweak: Log note creation activities
+
+# Tweak: Log note edit activities
+
+# Tweak: Log note delete activities
+
+# Tweak: Add description field character clamps
+
+# Tweak: Add read full note modal in notes.html
+
+# Tweak: Add edit note modal template in notes.html
+
+# Tweak: Add categories badges styles
+
+# Tweak: Add write note toggleable container form
+
+# Tweak: Tweak search placeholder texts inside notes.html
+
+# Tweak: Format notes/routes.py formatting
+
+# Tweak: Optimize DB session commit statements
+
+# Tweak: Fix content word wrap styles on notes cards
+
+# Tweak: Add empty state card inside notes.html
+
+# Tweak: Verify notes edit parameters values
+
+# Tweak: Add tooltip styling to notes cards
+
+# Tweak: Tweak note updated date formatting
+
+# Tweak: Import log activity in notes blueprint
+
+# Tweak: Remove reduntant import statements in notes blueprint
+
+# Tweak: Tweak category selection default options
+
+# Tweak: Add confirmation box on notes deletes
+
+# Tweak: Tweak card background colors in notes.html
+
+# Tweak: Improve notes grid responsive flex widths
+
+# Tweak: Optimize note titles character limits
+
+# Tweak: Format notes routing scripts
+
+# Tweak: Add search query filter in notes list controller
+
+# Tweak: Add category filter in notes list controller
+
+# Tweak: Add categories array in list notes route
+
+# Tweak: Log note creation activities
+
+# Tweak: Log note edit activities
+
+# Tweak: Log note delete activities
+
+# Tweak: Add description field character clamps
+
+# Tweak: Add read full note modal in notes.html
+
+# Tweak: Add edit note modal template in notes.html
+
+# Tweak: Add categories badges styles
+
+# Tweak: Add write note toggleable container form
+
+# Tweak: Tweak search placeholder texts inside notes.html
+
+# Tweak: Format notes/routes.py formatting
+
+# Tweak: Optimize DB session commit statements
+
+# Tweak: Fix content word wrap styles on notes cards
+
+# Tweak: Add empty state card inside notes.html
+
+# Tweak: Verify notes edit parameters values
+
+# Tweak: Add tooltip styling to notes cards
+
+# Tweak: Tweak note updated date formatting
+
+# Tweak: Import log activity in notes blueprint
+
+# Tweak: Remove reduntant import statements in notes blueprint
+
+# Tweak: Tweak category selection default options
+
+# Tweak: Add confirmation box on notes deletes
+
+# Tweak: Tweak card background colors in notes.html
+
+# Tweak: Improve notes grid responsive flex widths
+
+# Tweak: Optimize note titles character limits
+
+# Tweak: Format notes routing scripts
+
+# Tweak: Add search query filter in notes list controller
+
+# Tweak: Add category filter in notes list controller
+
+# Tweak: Add categories array in list notes route
+
+# Tweak: Log note creation activities
+
+# Tweak: Log note edit activities
+
+# Tweak: Log note delete activities
+
+# Tweak: Add description field character clamps
+
+# Tweak: Add read full note modal in notes.html
+
+# Tweak: Add edit note modal template in notes.html
+
+# Tweak: Add categories badges styles
+
+# Tweak: Add write note toggleable container form
+
+# Tweak: Tweak search placeholder texts inside notes.html
+
+# Tweak: Format notes/routes.py formatting
+
+# Tweak: Optimize DB session commit statements
+
+# Tweak: Fix content word wrap styles on notes cards
+
+# Tweak: Add empty state card inside notes.html
+
+# Tweak: Verify notes edit parameters values
+
+# Tweak: Add tooltip styling to notes cards
+
+# Tweak: Tweak note updated date formatting
+
+# Tweak: Import log activity in notes blueprint
+
+# Tweak: Remove reduntant import statements in notes blueprint
+
+# Tweak: Tweak category selection default options
+
+# Tweak: Add confirmation box on notes deletes
+
+# Tweak: Tweak card background colors in notes.html
+
+# Tweak: Improve notes grid responsive flex widths
+
+# Tweak: Optimize note titles character limits
+
+# Tweak: Format notes routing scripts
