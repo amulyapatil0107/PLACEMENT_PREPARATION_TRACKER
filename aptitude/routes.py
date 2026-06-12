@@ -24,3 +24,16 @@ DEFAULT_TOPICS = {
 def init_aptitude_topics(user_id):
     existing = AptitudeProgress.query.filter_by(user_id=user_id).first()
     if not existing:
+        for category, topics in DEFAULT_TOPICS.items():
+            for topic in topics:
+                prog = AptitudeProgress(user_id=user_id, category=category, topic_name=topic, status='Not Started', score=0)
+                db.session.add(prog)
+        db.session.commit()
+
+@aptitude_bp.route('/aptitude', methods=['GET'])
+@login_required
+def list_aptitude():
+    user_id = session['user_id']
+    init_aptitude_topics(user_id)
+    
+    progress_items = AptitudeProgress.query.filter_by(user_id=user_id).all()
