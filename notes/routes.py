@@ -46,3 +46,6 @@ def edit_note(id):
     user_id = session['user_id']
     note = Note.query.filter_by(id=id, user_id=user_id).first_or_404()
     
+    note.title = request.form.get('title')
+    note.content = request.form.get('content')
+    note.category = request.form.get('category')
