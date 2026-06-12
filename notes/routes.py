@@ -40,3 +40,6 @@ def add_note():
     flash('Note created successfully!', 'success')
     return redirect(url_for('notes.list_notes'))
 
+@notes_bp.route('/notes/edit/<int:id>', methods=['POST'])
+@login_required
+def edit_note(id):
