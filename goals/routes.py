@@ -18,3 +18,13 @@ def update_goal_progress(user_id):
         elif goal.target_type == 'Aptitude':
             aptitude_count = AptitudeProgress.query.filter_by(user_id=user_id, status='Completed').count()
             goal.current_value = aptitude_count
+        
+        if goal.current_value >= goal.target_value:
+            goal.is_completed = True
+            log_activity(user_id, 'Goal Completed', f'Completed goal: {goal.description}')
+    db.session.commit()
+
+@goals_bp.route('/goals', methods=['GET'])
+@login_required
+def list_goals():
+    user_id = session['user_id']
