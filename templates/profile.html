@@ -11,6 +11,10 @@
                 <input type="text" class="form-input" value="{{ user.username }}" readonly style="background: rgba(255, 255, 255, 0.02); color: var(--text-secondary); cursor: not-allowed;">
                 <small style="color: var(--text-muted); margin-top: 0.2rem;">Username cannot be changed.</small>
             </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" class="form-input" value="{{ user.email }}" required>
+            </div>
         </form>
     </div>
 </div>
