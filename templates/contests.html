@@ -8,3 +8,17 @@
         <i class="fa-solid fa-chevron-down"></i>
     </div>
     <form id="add-contest-form" class="hidden" method="POST" action="{{ url_for('dsa.add_contest') }}" style="margin-top: 1.5rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+        <div class="grid-container" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+            <div class="form-group">
+                <label for="name">Contest Name</label>
+                <input type="text" id="name" name="name" class="form-input" required placeholder="e.g. Weekly Contest 350">
+            </div>
+            <div class="form-group">
+                <label for="platform">Platform</label>
+                <select id="platform" name="platform" class="form-input" required>
+                    <option value="LeetCode">LeetCode</option>
+                    <option value="Codeforces">Codeforces</option>
+                    <option value="CodeChef">CodeChef</option>
+                    <option value="HackerRank">HackerRank</option>
+                </select>
+            </div>
