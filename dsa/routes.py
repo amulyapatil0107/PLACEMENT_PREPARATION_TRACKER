@@ -30,3 +30,5 @@ def list_problems():
         query = query.filter_by(status=(status == 'solved'))
         
     problems = query.order_by(Problem.date_created.desc()).all()
+    topics = [p[0] for p in db.session.query(Problem.topic).filter_by(user_id=user_id).distinct().all()]
+    
