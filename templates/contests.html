@@ -2,3 +2,9 @@
 {% block title %}Contests - PrepTracker{% endblock %}
 {% block header_title %}Contest Tracker{% endblock %}
 {% block content %}
+<div class="card" style="margin-bottom: 2rem;">
+    <div style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;" onclick="document.getElementById('add-contest-form').classList.toggle('hidden')">
+        <h3 style="margin: 0;"><i class="fa-solid fa-trophy" style="color: var(--warning-color);"></i> Log a New Contest</h3>
+        <i class="fa-solid fa-chevron-down"></i>
+    </div>
+    <form id="add-contest-form" class="hidden" method="POST" action="{{ url_for('dsa.add_contest') }}" style="margin-top: 1.5rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
