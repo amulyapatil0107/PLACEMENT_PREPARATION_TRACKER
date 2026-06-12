@@ -49,3 +49,4 @@ def edit_note(id):
     note.title = request.form.get('title')
     note.content = request.form.get('content')
     note.category = request.form.get('category')
+    
