@@ -61,3 +61,5 @@ def delete_note(id):
     user_id = session['user_id']
     note = Note.query.filter_by(id=id, user_id=user_id).first_or_404()
     db.session.delete(note)
+    db.session.commit()
+    log_activity(user_id, 'Note Delete', f'Deleted note: {note.title}')
