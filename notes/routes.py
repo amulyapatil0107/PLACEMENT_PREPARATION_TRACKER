@@ -27,3 +27,8 @@ def list_notes():
 @notes_bp.route('/notes/add', methods=['POST'])
 @login_required
 def add_note():
+    user_id = session['user_id']
+    title = request.form.get('title')
+    content = request.form.get('content')
+    category = request.form.get('category')
+    
