@@ -22,3 +22,11 @@ def get_monthly_solving_progress(user_id):
     
     stats = db.session.query(
         func.strftime('%Y-%m', Problem.date_solved),
+        func.count(Problem.id)
+    ).filter(
+        Problem.user_id == user_id,
+        Problem.status == True,
+        Problem.date_solved >= six_months_ago.date()
+    ).group_by(
+        func.strftime('%Y-%m', Problem.date_solved)
+    ).order_by(
