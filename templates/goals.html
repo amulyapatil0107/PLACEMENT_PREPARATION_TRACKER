@@ -145,3 +145,27 @@
     border: 1px solid var(--border-color);
 }
 .goal-completed {
+    border-color: rgba(16, 185, 129, 0.4);
+    background: rgba(16, 185, 129, 0.05);
+}
+</style>
+
+<script>
+function openEditGoalModal(id, description, type, val, deadline) {
+    const modal = document.getElementById('edit-goal-modal');
+    const form = document.getElementById('edit-goal-form');
+    form.action = `/goals/edit/` + id;
+    
+    document.getElementById('edit-g-description').value = description;
+    document.getElementById('edit-g-target-type').value = type;
+    document.getElementById('edit-g-target-value').value = val;
+    document.getElementById('edit-g-deadline').value = deadline;
+    
+    modal.classList.remove('hidden');
+}
+
+function closeEditGoalModal() {
+    document.getElementById('edit-goal-modal').classList.add('hidden');
+}
+</script>
+{% endblock %}
