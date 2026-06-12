@@ -36,3 +36,4 @@ def add_note():
     db.session.add(note)
     db.session.commit()
     
+    log_activity(user_id, 'Note Created', f'Created note: {title}')
