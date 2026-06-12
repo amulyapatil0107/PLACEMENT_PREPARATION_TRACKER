@@ -115,3 +115,43 @@
                 </tr>
             </thead>
             <tbody>
+                {% if problems %}
+                    {% for problem in problems %}
+                        <tr>
+                            <td>
+                                <form method="POST" action="{{ url_for('dsa.edit_problem', id=problem.id) }}" style="display: inline;">
+                                    <input type="hidden" name="name" value="{{ problem.name }}">
+                                    <input type="hidden" name="topic" value="{{ problem.topic }}">
+                                    <input type="hidden" name="difficulty" value="{{ problem.difficulty }}">
+                                    <input type="hidden" name="platform" value="{{ problem.platform }}">
+                                    <input type="hidden" name="notes" value="{{ problem.notes or '' }}">
+                                    <input type="checkbox" name="status" value="solved" {% if problem.status %}checked{% endif %} onchange="this.form.submit()" style="width: 20px; height: 20px; cursor: pointer;">
+                                </form>
+                            </td>
+                            <td>
+                                <strong>{{ problem.name }}</strong>
+                                {% if problem.notes %}
+                                    <div style="display: inline-block; margin-left: 0.5rem; cursor: pointer;" title="{{ problem.notes }}">
+                                        <i class="fa-solid fa-circle-info" style="color: var(--text-muted);"></i>
+                                    </div>
+                                {% endif %}
+                            </td>
+                            <td><span style="background: rgba(255,255,255,0.05); padding: 0.25rem 0.5rem; border-radius: 6px; font-size: 0.85rem;">{{ problem.topic }}</span></td>
+                            <td>
+                                <span class="badge badge-{{ problem.difficulty.lower() }}">{{ problem.difficulty }}</span>
+                            </td>
+                            <td>
+                                <span style="font-weight: 500;">
+                                    {% if problem.platform == 'LeetCode' %}<i class="fa-solid fa-code" style="color: #ffa116;"></i> LeetCode
+                                    {% elif problem.platform == 'GeeksforGeeks' %}<i class="fa-solid fa-gears" style="color: #2f8d46;"></i> GFG
+                                    {% elif problem.platform == 'Codeforces' %}<i class="fa-solid fa-chart-column" style="color: #3182ce;"></i> Codeforces
+                                    {% else %}<i class="fa-solid fa-globe"></i> {{ problem.platform }}
+                                    {% endif %}
+                                </span>
+                            </td>
+                            <td>
+                                <span style="color: var(--text-secondary); font-size: 0.85rem;">
+                                    {{ problem.date_solved.strftime('%Y-%m-%d') if problem.date_solved else 'N/A' }}
+                                </span>
+                            </td>
+                            <td>
