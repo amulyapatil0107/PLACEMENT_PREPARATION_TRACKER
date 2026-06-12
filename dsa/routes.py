@@ -123,3 +123,17 @@ def add_contest():
     rating_after = int(rating_after) if rating_after else None
     rating_change = (rating_after - rating_before) if (rating_before and rating_after) else None
     
+    contest_date = datetime.strptime(date_str, '%Y-%m-%d').date()
+    
+    contest = Contest(user_id=user_id, name=name, platform=platform, date=contest_date,
+                      rank=rank, rating_before=rating_before, rating_after=rating_after, rating_change=rating_change)
+    db.session.add(contest)
+    db.session.commit()
+    
+    user = User.query.get(user_id)
+    update_streak(user)
+    log_activity(user_id, 'Contest Attended', f'Participated in contest: {name}')
+    
+    flash('Contest added successfully!', 'success')
+    return redirect(url_for('dsa.list_contests'))
+
