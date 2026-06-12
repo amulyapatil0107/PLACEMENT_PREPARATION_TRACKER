@@ -62,3 +62,9 @@ def add_problem():
     flash('Problem added successfully!', 'success')
     return redirect(url_for('dsa.list_problems'))
 
+@dsa_bp.route('/dsa/edit/<int:id>', methods=['POST'])
+@login_required
+def edit_problem(id):
+    user_id = session['user_id']
+    problem = Problem.query.filter_by(id=id, user_id=user_id).first_or_404()
+    
