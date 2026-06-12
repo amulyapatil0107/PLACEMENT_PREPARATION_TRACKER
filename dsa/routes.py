@@ -118,3 +118,8 @@ def add_contest():
     rank = int(request.form.get('rank', 0))
     rating_before = request.form.get('rating_before')
     rating_after = request.form.get('rating_after')
+    
+    rating_before = int(rating_before) if rating_before else None
+    rating_after = int(rating_after) if rating_after else None
+    rating_change = (rating_after - rating_before) if (rating_before and rating_after) else None
+    
