@@ -6,3 +6,9 @@ from datetime import datetime
 
 dsa_bp = Blueprint('dsa', __name__)
 
+@dsa_bp.route('/dsa', methods=['GET'])
+@login_required
+def list_problems():
+    user_id = session['user_id']
+    query = Problem.query.filter_by(user_id=user_id)
+    
