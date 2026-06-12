@@ -68,3 +68,13 @@ def edit_problem(id):
     user_id = session['user_id']
     problem = Problem.query.filter_by(id=id, user_id=user_id).first_or_404()
     
+    problem.name = request.form.get('name')
+    problem.topic = request.form.get('topic')
+    problem.difficulty = request.form.get('difficulty')
+    problem.platform = request.form.get('platform')
+    
+    prev_status = problem.status
+    new_status = request.form.get('status') == 'solved'
+    problem.status = new_status
+    problem.notes = request.form.get('notes')
+    
