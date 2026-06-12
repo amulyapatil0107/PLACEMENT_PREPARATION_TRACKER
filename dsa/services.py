@@ -18,3 +18,7 @@ def update_streak(user):
     user.last_activity_date = today
     db.session.commit()
 
+def log_activity(user_id, activity_type, description):
+    activity = Activity(user_id=user_id, activity_type=activity_type, description=description)
+    db.session.add(activity)
+    db.session.commit()
