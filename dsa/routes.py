@@ -101,3 +101,10 @@ def delete_problem(id):
     flash('Problem deleted successfully!', 'info')
     return redirect(url_for('dsa.list_problems'))
 
+@dsa_bp.route('/contests', methods=['GET'])
+@login_required
+def list_contests():
+    user_id = session['user_id']
+    contests = Contest.query.filter_by(user_id=user_id).order_by(Contest.date.desc()).all()
+    return render_template('contests.html', contests=contests)
+
