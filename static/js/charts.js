@@ -56,3 +56,32 @@ function renderTopicChart(data) {
             }
         }
     });
+}
+
+function renderDifficultyChart(data) {
+    const ctx = document.getElementById('difficultyChart').getContext('2d');
+    const labels = ['Easy', 'Medium', 'Hard'];
+    const values = [data['Easy'] || 0, data['Medium'] || 0, data['Hard'] || 0];
+
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: labels,
+            datasets: [{
+                data: values,
+                backgroundColor: [
+                    'rgba(16, 185, 129, 0.7)',
+                    'rgba(245, 158, 11, 0.7)',
+                    'rgba(244, 63, 94, 0.7)'
+                ],
+                borderColor: 'rgba(255, 255, 255, 0.1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { position: 'bottom', labels: { color: '#94a3b8' } }
+            }
+        }
+    });
