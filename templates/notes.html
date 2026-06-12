@@ -9,3 +9,7 @@
     </div>
     <form id="add-note-form" class="hidden" method="POST" action="{{ url_for('notes.add_note') }}" style="margin-top: 1.5rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
         <div class="grid-container" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+            <div class="form-group" style="grid-column: span 2;">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" class="form-input" required placeholder="e.g. ACID Properties in DBMS">
+            </div>
