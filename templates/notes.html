@@ -164,3 +164,33 @@
 }
 </style>
 
+<script>
+function openEditNoteModal(id, title, category, content) {
+    const modal = document.getElementById('edit-note-modal');
+    const form = document.getElementById('edit-note-form');
+    form.action = `/notes/edit/` + id;
+    
+    document.getElementById('edit-n-title').value = title;
+    document.getElementById('edit-n-category').value = category;
+    document.getElementById('edit-n-content').value = content;
+    
+    modal.classList.remove('hidden');
+}
+
+function closeEditNoteModal() {
+    document.getElementById('edit-note-modal').classList.add('hidden');
+}
+
+function openViewNoteModal(title, category, content) {
+    const modal = document.getElementById('view-note-modal');
+    document.getElementById('view-n-title').innerText = title;
+    document.getElementById('view-n-category').innerText = category;
+    document.getElementById('view-n-content').innerText = content;
+    modal.classList.remove('hidden');
+}
+
+function closeViewNoteModal() {
+    document.getElementById('view-note-modal').classList.add('hidden');
+}
+</script>
+{% endblock %}
