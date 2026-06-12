@@ -22,5 +22,19 @@ document.addEventListener('DOMContentLoaded', () => {
             body.classList.remove('light-theme');
             themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
         }
+
+        themeToggle.addEventListener('click', () => {
+            if (body.classList.contains('dark-theme')) {
+                body.classList.remove('dark-theme');
+                body.classList.add('light-theme');
+                themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.classList.add('dark-theme');
+                body.classList.remove('light-theme');
+                themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
     }
 });
