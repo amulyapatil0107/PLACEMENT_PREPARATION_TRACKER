@@ -35,3 +35,6 @@ def list_problems():
     return render_template('dsa.html', problems=problems, topics=topics, 
                            search=search, difficulty=difficulty, topic=topic, platform=platform, status=status)
 
+@dsa_bp.route('/dsa/add', methods=['POST'])
+@login_required
+def add_problem():
