@@ -103,3 +103,24 @@
                 <label for="edit-g-target-type">Target Module</label>
                 <select id="edit-g-target-type" name="target_type" class="form-input">
                     <option value="DSA">DSA Problems (Solved)</option>
+                    <option value="Contest">Contests (Attended)</option>
+                    <option value="Aptitude">Aptitude (Completed Topics)</option>
+                    <option value="General">General (Manual Track)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="edit-g-target-value">Target Quantity</label>
+                <input type="number" id="edit-g-target-value" name="target_value" class="form-input" required min="1">
+            </div>
+            <div class="form-group">
+                <label for="edit-g-deadline">Target Deadline</label>
+                <input type="date" id="edit-g-deadline" name="deadline" class="form-input" required>
+            </div>
+            <div style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 1.5rem;">
+                <button type="button" onclick="closeEditGoalModal()" class="btn btn-secondary">Cancel</button>
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+            </div>
+        </form>
+    </div>
+</div>
+
