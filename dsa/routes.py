@@ -38,3 +38,11 @@ def list_problems():
 @dsa_bp.route('/dsa/add', methods=['POST'])
 @login_required
 def add_problem():
+    user_id = session['user_id']
+    name = request.form.get('name')
+    topic = request.form.get('topic')
+    difficulty = request.form.get('difficulty')
+    platform = request.form.get('platform')
+    status_val = request.form.get('status') == 'solved'
+    notes = request.form.get('notes')
+    
