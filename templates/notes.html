@@ -84,3 +84,45 @@
                 </div>
             </div>
         {% endfor %}
+    {% else %}
+        <div class="card" style="grid-column: 1 / -1; text-align: center; color: var(--text-muted); padding: 4rem 0;">
+            <i class="fa-solid fa-folder-open" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+            <p>No notes found. Create your first preparation note now!</p>
+        </div>
+    {% endif %}
+</div>
+
+<div id="edit-note-modal" class="modal hidden">
+    <div class="modal-content card" style="width: 600px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+            <h3>Edit Note</h3>
+            <button onclick="closeEditNoteModal()" class="icon-btn" style="border: none; background: none; font-size: 1.5rem;">&times;</button>
+        </div>
+        <form id="edit-note-form" method="POST" action="">
+            <div class="form-group">
+                <label for="edit-n-title">Title</label>
+                <input type="text" id="edit-n-title" name="title" class="form-input" required>
+            </div>
+            <div class="form-group">
+                <label for="edit-n-category">Category</label>
+                <select id="edit-n-category" name="category" class="form-input">
+                    <option value="OOP">OOP</option>
+                    <option value="DBMS">DBMS</option>
+                    <option value="Operating Systems">Operating Systems</option>
+                    <option value="Computer Networks">Computer Networks</option>
+                    <option value="HR Questions">HR Questions</option>
+                    <option value="General">General</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="edit-n-content">Content</label>
+                <textarea id="edit-n-content" name="content" class="form-input" rows="8" required></textarea>
+            </div>
+            <div style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 1.5rem;">
+                <button type="button" onclick="closeEditNoteModal()" class="btn btn-secondary">Cancel</button>
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+            </div>
+        </form>
+    </div>
+</div>
+
