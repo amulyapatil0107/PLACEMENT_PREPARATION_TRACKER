@@ -1,0 +1,68 @@
+:root {
+    --bg-color: #0b0f19;
+    --card-bg: rgba(22, 28, 45, 0.65);
+    --card-hover-bg: rgba(26, 34, 54, 0.85);
+    --border-color: rgba(255, 255, 255, 0.08);
+    --border-color-glow: rgba(99, 102, 241, 0.35);
+    
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    
+    --primary-color: #6366f1;
+    --primary-hover: #4f46e5;
+    --primary-gradient: linear-gradient(135deg, #6366f1, #a855f7);
+    --primary-glow: rgba(99, 102, 241, 0.3);
+    
+    --accent-cyan: #06b6d4;
+    --accent-cyan-gradient: linear-gradient(135deg, #06b6d4, #3b82f6);
+    --accent-cyan-glow: rgba(6, 182, 212, 0.3);
+    
+    --danger-color: #f43f5e;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    
+    --glass-blur: blur(12px);
+    --transition-fast: 0.2s ease;
+    --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    
+    --shadow-premium: 0 10px 30px -15px rgba(0, 0, 0, 0.7);
+    --shadow-glow: 0 0 20px 0 rgba(99, 102, 241, 0.15);
+}
+
+.light-theme {
+    --bg-color: #f1f5f9;
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --card-hover-bg: rgba(255, 255, 255, 0.95);
+    --border-color: rgba(0, 0, 0, 0.06);
+    --border-color-glow: rgba(99, 102, 241, 0.2);
+    
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+    
+    --primary-color: #4f46e5;
+    --primary-hover: #3730a3;
+    --primary-gradient: linear-gradient(135deg, #4f46e5, #7c3aed);
+    --primary-glow: rgba(79, 70, 229, 0.15);
+    
+    --accent-cyan: #0284c7;
+    --accent-cyan-gradient: linear-gradient(135deg, #0284c7, #2563eb);
+    --accent-cyan-glow: rgba(2, 132, 199, 0.15);
+    
+    --danger-color: #e11d48;
+    --success-color: #059669;
+    --warning-color: #d97706;
+    
+    --shadow-premium: 0 10px 25px -10px rgba(0, 0, 0, 0.1);
+    --shadow-glow: 0 0 15px 0 rgba(79, 70, 229, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
