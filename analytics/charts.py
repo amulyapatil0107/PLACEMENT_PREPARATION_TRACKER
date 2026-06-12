@@ -14,3 +14,11 @@ def get_dsa_difficulty_stats(user_id):
         Problem.difficulty, 
         func.count(Problem.id)
     ).filter_by(user_id=user_id, status=True).group_by(Problem.difficulty).all()
+    return {diff: count for diff, count in stats}
+
+def get_monthly_solving_progress(user_id):
+    today = datetime.today()
+    six_months_ago = today - timedelta(days=180)
+    
+    stats = db.session.query(
+        func.strftime('%Y-%m', Problem.date_solved),
