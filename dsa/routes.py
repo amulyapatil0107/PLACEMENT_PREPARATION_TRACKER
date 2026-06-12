@@ -55,3 +55,7 @@ def add_problem():
     db.session.add(problem)
     db.session.commit()
     
+    user = User.query.get(user_id)
+    update_streak(user)
+    log_activity(user_id, 'DSA Solved' if status_val else 'DSA Added', f'Added problem: {name}')
+    
