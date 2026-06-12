@@ -20,3 +20,5 @@ def list_notes():
         query = query.filter_by(category=category)
         
     notes = query.order_by(Note.date_updated.desc()).all()
+    categories = ['OOP', 'DBMS', 'Operating Systems', 'Computer Networks', 'HR Questions', 'General']
+    
