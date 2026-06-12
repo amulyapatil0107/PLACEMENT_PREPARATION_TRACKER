@@ -38,3 +38,13 @@ def list_goals():
 def add_goal():
     user_id = session['user_id']
     description = request.form.get('description')
+    target_type = request.form.get('target_type')
+    target_value = int(request.form.get('target_value', 1))
+    deadline_str = request.form.get('deadline')
+    
+    deadline = datetime.strptime(deadline_str, '%Y-%m-%d').date()
+    
+    goal = Goal(user_id=user_id, description=description, target_type=target_type, 
+                target_value=target_value, deadline=deadline)
+    db.session.add(goal)
+    db.session.commit()
