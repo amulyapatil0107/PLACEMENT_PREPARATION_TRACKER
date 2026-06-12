@@ -46,3 +46,7 @@ def add_problem():
     status_val = request.form.get('status') == 'solved'
     notes = request.form.get('notes')
     
+    date_solved = None
+    if status_val:
+        date_solved = datetime.today().date()
+        
