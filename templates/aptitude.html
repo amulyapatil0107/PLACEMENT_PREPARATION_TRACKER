@@ -16,3 +16,21 @@
             <div class="form-group">
                 <label for="category">Category</label>
                 <select id="category" name="category" class="form-input" required>
+                    <option value="Quantitative Aptitude">Quantitative Aptitude</option>
+                    <option value="Logical Reasoning">Logical Reasoning</option>
+                    <option value="Verbal Ability">Verbal Ability</option>
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Add Topic</button>
+    </form>
+</div>
+
+<div class="grid-container" style="grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));">
+    {% for category, items in grouped.items() %}
+        <div class="card">
+            <h3 style="margin-bottom: 1.25rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center;">
+                <span>
+                    {% if category == 'Quantitative Aptitude' %}<i class="fa-solid fa-calculator" style="color: var(--primary-color);"></i>
+                    {% elif category == 'Logical Reasoning' %}<i class="fa-solid fa-lightbulb" style="color: var(--warning-color);"></i>
+                    {% else %}<i class="fa-solid fa-comments" style="color: var(--accent-cyan);"></i>
