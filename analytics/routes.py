@@ -94,3 +94,27 @@ def get_analytics_data():
 
 # Tweak: Implement goals success rate aggregator query
 
+# Tweak: Implement automatic goal progress recalculator
+
+# Tweak: Add defaults aptitude topics seeder inside aptitude routes
+
+# Tweak: Log goal creation events
+
+# Tweak: Log goal update events
+
+# Tweak: Log goal completion events
+
+# Tweak: Log aptitude accuracy score updates
+
+# Tweak: Log custom aptitude topic additions
+
+# Tweak: Add update aptitude scores modal inside aptitude.html
+
+# Tweak: Add custom topic form in aptitude.html
+
+# Tweak: Add edit goal modal inside goals.html
+
+# Tweak: Add goal completion check indicator badges
+
+# Tweak: Configure line graph datasets in charts.js
+
