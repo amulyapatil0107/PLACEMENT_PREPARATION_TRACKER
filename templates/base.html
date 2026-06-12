@@ -26,6 +26,9 @@
                 <a href="{{ url_for('dsa.list_problems') }}" class="menu-item {% if request.path == url_for('dsa.list_problems') %}active{% endif %}">
                     <i class="fa-solid fa-code"></i> <span>DSA Tracker</span>
                 </a>
+                <a href="{{ url_for('dsa.list_contests') }}" class="menu-item {% if request.path == url_for('dsa.list_contests') %}active{% endif %}">
+                    <i class="fa-solid fa-trophy"></i> <span>Contests</span>
+                </a>
             </nav>
         </aside>
         {% endif %}
