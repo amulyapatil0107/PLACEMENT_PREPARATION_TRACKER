@@ -22,3 +22,5 @@ def list_notes():
     notes = query.order_by(Note.date_updated.desc()).all()
     categories = ['OOP', 'DBMS', 'Operating Systems', 'Computer Networks', 'HR Questions', 'General']
     
+    return render_template('notes.html', notes=notes, categories=categories, search=search, category=category)
+
