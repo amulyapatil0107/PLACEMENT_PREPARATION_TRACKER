@@ -41,6 +41,11 @@
                 <a href="{{ url_for('analytics.dashboard_analytics') }}" class="menu-item {% if request.path == url_for('analytics.dashboard_analytics') %}active{% endif %}">
                     <i class="fa-solid fa-chart-pie"></i> <span>Analytics</span>
                 </a>
+                {% if session.get('is_admin') %}
+                <a href="{{ url_for('admin_panel') }}" class="menu-item {% if request.path == url_for('admin_panel') %}active{% endif %}">
+                    <i class="fa-solid fa-lock-open"></i> <span>Admin Panel</span>
+                </a>
+                {% endif %}
             </nav>
         </aside>
         {% endif %}
