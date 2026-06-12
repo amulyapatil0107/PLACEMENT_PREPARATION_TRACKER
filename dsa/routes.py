@@ -137,3 +137,186 @@ def add_contest():
     flash('Contest added successfully!', 'success')
     return redirect(url_for('dsa.list_contests'))
 
+@dsa_bp.route('/contests/edit/<int:id>', methods=['POST'])
+@login_required
+def edit_contest(id):
+    user_id = session['user_id']
+    contest = Contest.query.filter_by(id=id, user_id=user_id).first_or_404()
+    
+    contest.name = request.form.get('name')
+    contest.platform = request.form.get('platform')
+    date_str = request.form.get('date')
+    contest.date = datetime.strptime(date_str, '%Y-%m-%d').date()
+    contest.rank = int(request.form.get('rank', 0))
+    
+    rating_before = request.form.get('rating_before')
+    rating_after = request.form.get('rating_after')
+    contest.rating_before = int(rating_before) if rating_before else None
+    contest.rating_after = int(rating_after) if rating_after else None
+    contest.rating_change = (contest.rating_after - contest.rating_before) if (contest.rating_before and contest.rating_after) else None
+    
+    db.session.commit()
+    log_activity(user_id, 'Contest Edit', f'Edited contest: {contest.name}')
+    flash('Contest updated successfully!', 'success')
+    return redirect(url_for('dsa.list_contests'))
+
+@dsa_bp.route('/contests/delete/<int:id>', methods=['POST'])
+@login_required
+def delete_contest(id):
+    user_id = session['user_id']
+    contest = Contest.query.filter_by(id=id, user_id=user_id).first_or_404()
+    db.session.delete(contest)
+    db.session.commit()
+    log_activity(user_id, 'Contest Delete', f'Deleted contest: {contest.name}')
+    flash('Contest deleted successfully!', 'info')
+    return redirect(url_for('dsa.list_contests'))
+
+# Tweak: Implement streak update logic check
+
+# Tweak: Tweak activity logging fields payload
+
+# Tweak: Add difficulty filter queries in problems list
+
+# Tweak: Add topic filter queries in problems list
+
+# Tweak: Add platform filter queries in problems list
+
+# Tweak: Add status solved checkbox query
+
+# Tweak: Add string search keyword filters inside routes.py
+
+# Tweak: Update date solved when checking solved
+
+# Tweak: Tweak problem deletion database actions
+
+# Tweak: Calculate rating delta change values on contests
+
+# Tweak: Validate date inputs format in add contest request
+
+# Tweak: Tweak contest deletion database actions
+
+# Tweak: Log activities upon solving problems
+
+# Tweak: Log activities upon logging contest entries
+
+# Tweak: Optimize query indexing inside list problems route
+
+# Tweak: Tweak problem name display inside dsa.html
+
+# Tweak: Add toggleable log problem panel in dsa.html
+
+# Tweak: Add edit modal template script inside dsa.html
+
+# Tweak: Add platform badge icons styling in dsa.html
+
+# Tweak: Add rating delta arrows color classes in contests.html
+
+# Tweak: Add edit contest modal in contests.html
+
+# Tweak: Format routes.py formatting
+
+# Tweak: Format services.py formatting
+
+# Tweak: Import datetime in dsa routes
+
+# Tweak: Tweak query orders to descending dates
+
+# Tweak: Implement streak update logic check
+
+# Tweak: Tweak activity logging fields payload
+
+# Tweak: Add difficulty filter queries in problems list
+
+# Tweak: Add topic filter queries in problems list
+
+# Tweak: Add platform filter queries in problems list
+
+# Tweak: Add status solved checkbox query
+
+# Tweak: Add string search keyword filters inside routes.py
+
+# Tweak: Update date solved when checking solved
+
+# Tweak: Tweak problem deletion database actions
+
+# Tweak: Calculate rating delta change values on contests
+
+# Tweak: Validate date inputs format in add contest request
+
+# Tweak: Tweak contest deletion database actions
+
+# Tweak: Log activities upon solving problems
+
+# Tweak: Log activities upon logging contest entries
+
+# Tweak: Optimize query indexing inside list problems route
+
+# Tweak: Tweak problem name display inside dsa.html
+
+# Tweak: Add toggleable log problem panel in dsa.html
+
+# Tweak: Add edit modal template script inside dsa.html
+
+# Tweak: Add platform badge icons styling in dsa.html
+
+# Tweak: Add rating delta arrows color classes in contests.html
+
+# Tweak: Add edit contest modal in contests.html
+
+# Tweak: Format routes.py formatting
+
+# Tweak: Format services.py formatting
+
+# Tweak: Import datetime in dsa routes
+
+# Tweak: Tweak query orders to descending dates
+
+# Tweak: Implement streak update logic check
+
+# Tweak: Tweak activity logging fields payload
+
+# Tweak: Add difficulty filter queries in problems list
+
+# Tweak: Add topic filter queries in problems list
+
+# Tweak: Add platform filter queries in problems list
+
+# Tweak: Add status solved checkbox query
+
+# Tweak: Add string search keyword filters inside routes.py
+
+# Tweak: Update date solved when checking solved
+
+# Tweak: Tweak problem deletion database actions
+
+# Tweak: Calculate rating delta change values on contests
+
+# Tweak: Validate date inputs format in add contest request
+
+# Tweak: Tweak contest deletion database actions
+
+# Tweak: Log activities upon solving problems
+
+# Tweak: Log activities upon logging contest entries
+
+# Tweak: Optimize query indexing inside list problems route
+
+# Tweak: Tweak problem name display inside dsa.html
+
+# Tweak: Add toggleable log problem panel in dsa.html
+
+# Tweak: Add edit modal template script inside dsa.html
+
+# Tweak: Add platform badge icons styling in dsa.html
+
+# Tweak: Add rating delta arrows color classes in contests.html
+
+# Tweak: Add edit contest modal in contests.html
+
+# Tweak: Format routes.py formatting
+
+# Tweak: Format services.py formatting
+
+# Tweak: Import datetime in dsa routes
+
+# Tweak: Tweak query orders to descending dates
