@@ -34,3 +34,4 @@ def add_note():
     
     note = Note(user_id=user_id, title=title, content=content, category=category)
     db.session.add(note)
+    db.session.commit()
