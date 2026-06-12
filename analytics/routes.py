@@ -166,3 +166,32 @@ def get_analytics_data():
 
 # Tweak: Add update aptitude scores modal inside aptitude.html
 
+# Tweak: Add custom topic form in aptitude.html
+
+# Tweak: Add edit goal modal inside goals.html
+
+# Tweak: Add goal completion check indicator badges
+
+# Tweak: Configure line graph datasets in charts.js
+
+# Tweak: Configure doughnut graph datasets in charts.js
+
+# Tweak: Configure polar area graph datasets in charts.js
+
+# Tweak: Configure bar graph datasets in charts.js
+
+# Tweak: Configure pie graph datasets in charts.js
+
+# Tweak: Tweak tooltips grid colors in charts.js
+
+# Tweak: Tweak CSS colors palette parameters
+
+# Tweak: Add glassmorphism background filters styling
+
+# Tweak: Add buttons hover animation guidelines inside style.css
+
+# Tweak: Optimize charts layout grids spacing
+
+# Tweak: Refine progress bars default background styles
+
+# Tweak: Add dark theme classes toggling triggers
