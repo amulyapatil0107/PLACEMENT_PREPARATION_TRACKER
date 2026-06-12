@@ -51,3 +51,4 @@ def edit_note(id):
     note.category = request.form.get('category')
     
     db.session.commit()
+    log_activity(user_id, 'Note Edit', f'Edited note: {note.title}')
