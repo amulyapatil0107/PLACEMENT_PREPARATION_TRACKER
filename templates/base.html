@@ -61,6 +61,11 @@
             </div>
         </aside>
         {% endif %}
+        <main class="main-content {% if not session.get('user_id') %}full-width{% endif %}">
+            <div class="content-wrapper">
+                {% block content %}{% endblock %}
+            </div>
+        </main>
     </div>
 </body>
 </html>
