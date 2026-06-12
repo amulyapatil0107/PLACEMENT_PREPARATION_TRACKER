@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Goal Management - PrepTracker{% endblock %}
+{% block header_title %}Goals Management{% endblock %}
+{% block content %}
+<div class="card" style="margin-bottom: 2rem;">
+    <div style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;" onclick="document.getElementById('add-goal-form').classList.toggle('hidden')">
+        <h3 style="margin: 0;"><i class="fa-solid fa-bullseye" style="color: var(--primary-color);"></i> Establish a New Goal</h3>
+        <i class="fa-solid fa-chevron-down"></i>
+    </div>
+    <form id="add-goal-form" class="hidden" method="POST" action="{{ url_for('goals.add_goal') }}" style="margin-top: 1.5rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+        <div class="grid-container" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+            <div class="form-group" style="grid-column: span 2;">
+                <label for="description">Goal Description</label>
+                <input type="text" id="description" name="description" class="form-input" required placeholder="e.g. Solve 100 Tree Questions">
+            </div>
+            <div class="form-group">
+                <label for="target_type">Target Module</label>
+                <select id="target_type" name="target_type" class="form-input" required>
+                    <option value="DSA">DSA Problems (Solved)</option>
+                    <option value="Contest">Contests (Attended)</option>
+                    <option value="Aptitude">Aptitude (Completed Topics)</option>
