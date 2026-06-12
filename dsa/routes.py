@@ -90,3 +90,14 @@ def edit_problem(id):
     flash('Problem updated successfully!', 'success')
     return redirect(url_for('dsa.list_problems'))
 
+@dsa_bp.route('/dsa/delete/<int:id>', methods=['POST'])
+@login_required
+def delete_problem(id):
+    user_id = session['user_id']
+    problem = Problem.query.filter_by(id=id, user_id=user_id).first_or_404()
+    db.session.delete(problem)
+    db.session.commit()
+    log_activity(user_id, 'DSA Delete', f'Deleted problem: {problem.name}')
+    flash('Problem deleted successfully!', 'info')
+    return redirect(url_for('dsa.list_problems'))
+
