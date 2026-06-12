@@ -19,3 +19,24 @@
                     <option value="DSA">DSA Problems (Solved)</option>
                     <option value="Contest">Contests (Attended)</option>
                     <option value="Aptitude">Aptitude (Completed Topics)</option>
+                    <option value="General">General (Manual Track)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="target_value">Target Quantity</label>
+                <input type="number" id="target_value" name="target_value" class="form-input" required min="1" placeholder="e.g. 50">
+            </div>
+            <div class="form-group">
+                <label for="deadline">Target Deadline</label>
+                <input type="date" id="deadline" name="deadline" class="form-input" required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Set Goal</button>
+    </form>
+</div>
+
+<div class="grid-container" style="grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));">
+    {% if goals %}
+        {% for goal in goals %}
+            <div class="card {% if goal.is_completed %}goal-completed{% endif %}" style="display: flex; flex-direction: column; justify-content: space-between; position: relative;">
+                {% if goal.is_completed %}
