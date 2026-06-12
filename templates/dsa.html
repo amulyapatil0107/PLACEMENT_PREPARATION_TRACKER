@@ -2,3 +2,9 @@
 {% block title %}DSA Tracker - PrepTracker{% endblock %}
 {% block header_title %}DSA Coding Tracker{% endblock %}
 {% block content %}
+<div class="card" style="margin-bottom: 2rem;">
+    <div style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;" onclick="document.getElementById('add-problem-form').classList.toggle('hidden')">
+        <h3 style="margin: 0;"><i class="fa-solid fa-circle-plus" style="color: var(--success-color);"></i> Log a New DSA Problem</h3>
+        <i class="fa-solid fa-chevron-down"></i>
+    </div>
+    <form id="add-problem-form" class="hidden" method="POST" action="{{ url_for('dsa.add_problem') }}" style="margin-top: 1.5rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
