@@ -32,3 +32,4 @@ def add_note():
     content = request.form.get('content')
     category = request.form.get('category')
     
+    note = Note(user_id=user_id, title=title, content=content, category=category)
