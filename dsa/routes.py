@@ -12,3 +12,11 @@ def list_problems():
     user_id = session['user_id']
     query = Problem.query.filter_by(user_id=user_id)
     
+    search = request.args.get('search', '')
+    difficulty = request.args.get('difficulty', '')
+    topic = request.args.get('topic', '')
+    platform = request.args.get('platform', '')
+    status = request.args.get('status', '')
+    
+    if search:
+        query = query.filter(Problem.name.like(f'%{search}%') | Problem.notes.like(f'%{search}%'))
