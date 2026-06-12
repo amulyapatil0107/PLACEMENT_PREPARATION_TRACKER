@@ -143,3 +143,36 @@ function renderContestChart(data) {
                 y: { grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { color: '#94a3b8' }, beginAtZero: true }
             },
             plugins: {
+                legend: { labels: { color: '#94a3b8' } }
+            }
+        }
+    });
+}
+
+function renderGoalChart(data) {
+    const ctx = document.getElementById('goalChart').getContext('2d');
+    const labels = ['Completed', 'Pending'];
+    const values = [data.completed || 0, data.pending || 0];
+
+    new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: labels,
+            datasets: [{
+                data: values,
+                backgroundColor: [
+                    'rgba(16, 185, 129, 0.7)',
+                    'rgba(99, 102, 241, 0.7)'
+                ],
+                borderColor: 'rgba(255, 255, 255, 0.1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { position: 'bottom', labels: { color: '#94a3b8' } }
+            }
+        }
+    });
+}
