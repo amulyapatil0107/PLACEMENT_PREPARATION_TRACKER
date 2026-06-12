@@ -85,3 +85,32 @@ function renderDifficultyChart(data) {
             }
         }
     });
+}
+
+function renderMonthlyChart(data) {
+    const ctx = document.getElementById('monthlyChart').getContext('2d');
+    const labels = Object.keys(data);
+    const values = Object.values(data);
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Problems Solved',
+                data: values,
+                borderColor: 'rgba(6, 182, 212, 1)',
+                backgroundColor: 'rgba(6, 182, 212, 0.1)',
+                borderWidth: 2,
+                fill: true,
+                tension: 0.3
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                x: { grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { color: '#94a3b8' } },
+                y: { grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { color: '#94a3b8' }, beginAtZero: true }
+            },
+            plugins: {
+                legend: { labels: { color: '#94a3b8' } }
