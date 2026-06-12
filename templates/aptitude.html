@@ -106,3 +106,21 @@
     backdrop-filter: blur(4px);
     display: flex;
     justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+.modal-content {
+    background: var(--bg-color);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    border: 1px solid var(--border-color);
+}
+</style>
+
+<script>
+function openUpdateAptitudeModal(id, topicName, status, score) {
+    const modal = document.getElementById('update-aptitude-modal');
+    const form = document.getElementById('update-aptitude-form');
+    form.action = `/aptitude/update/` + id;
+    
+    document.getElementById('aptitude-topic-title').innerText = topicName;
+    document.getElementById('aptitude-status').value = status;
