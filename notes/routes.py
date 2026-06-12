@@ -55,3 +55,6 @@ def edit_note(id):
     flash('Note updated successfully!', 'success')
     return redirect(url_for('notes.list_notes'))
 
+@notes_bp.route('/notes/delete/<int:id>', methods=['POST'])
+@login_required
+def delete_note(id):
