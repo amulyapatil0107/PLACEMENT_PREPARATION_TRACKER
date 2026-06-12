@@ -20,3 +20,5 @@ def list_problems():
     
     if search:
         query = query.filter(Problem.name.like(f'%{search}%') | Problem.notes.like(f'%{search}%'))
+    if difficulty:
+        query = query.filter_by(difficulty=difficulty)
