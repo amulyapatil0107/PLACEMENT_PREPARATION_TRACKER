@@ -24,3 +24,6 @@ def list_notes():
     
     return render_template('notes.html', notes=notes, categories=categories, search=search, category=category)
 
+@notes_bp.route('/notes/add', methods=['POST'])
+@login_required
+def add_note():
