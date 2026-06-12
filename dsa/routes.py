@@ -29,3 +29,4 @@ def list_problems():
     if status != '':
         query = query.filter_by(status=(status == 'solved'))
         
+    problems = query.order_by(Problem.date_created.desc()).all()
