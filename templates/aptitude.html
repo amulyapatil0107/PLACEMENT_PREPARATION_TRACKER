@@ -124,3 +124,24 @@ function openUpdateAptitudeModal(id, topicName, status, score) {
     
     document.getElementById('aptitude-topic-title').innerText = topicName;
     document.getElementById('aptitude-status').value = status;
+    document.getElementById('aptitude-score').value = score;
+    
+    toggleScoreInput(status);
+    
+    modal.classList.remove('hidden');
+}
+
+function closeUpdateAptitudeModal() {
+    document.getElementById('update-aptitude-modal').classList.add('hidden');
+}
+
+function toggleScoreInput(status) {
+    const scoreGroup = document.getElementById('score-group');
+    if (status === 'Completed') {
+        scoreGroup.style.display = 'flex';
+    } else {
+        scoreGroup.style.display = 'none';
+    }
+}
+</script>
+{% endblock %}
