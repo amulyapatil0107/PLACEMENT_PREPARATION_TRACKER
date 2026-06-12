@@ -8,3 +8,13 @@ goals_bp = Blueprint('goals', __name__)
 
 def update_goal_progress(user_id):
     goals = Goal.query.filter_by(user_id=user_id, is_completed=False).all()
+    for goal in goals:
+        if goal.target_type == 'DSA':
+            solved_count = Problem.query.filter_by(user_id=user_id, status=True).count()
+            goal.current_value = solved_count
+        elif goal.target_type == 'Contest':
+            contest_count = Contest.query.filter_by(user_id=user_id).count()
+            goal.current_value = contest_count
+        elif goal.target_type == 'Aptitude':
+            aptitude_count = AptitudeProgress.query.filter_by(user_id=user_id, status='Completed').count()
+            goal.current_value = aptitude_count
